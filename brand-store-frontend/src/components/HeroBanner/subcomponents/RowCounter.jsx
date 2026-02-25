@@ -10,7 +10,7 @@ function RowCounter({ title, subtitle, value, onMinus, onPlus }) {
       <div className="flex items-center space-x-3">
         <button
           onClick={onMinus}
-          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-[color:var(--primary)] hover:text-[color:var(--primary)] transition-all"
+          className="cursor-pointer w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-[color:var(--primary)] hover:text-[color:var(--primary)] transition-all"
           type="button"
         >
           <span className="material-symbols-outlined text-sm">remove</span>
@@ -18,7 +18,7 @@ function RowCounter({ title, subtitle, value, onMinus, onPlus }) {
         <span className="text-white font-display text-lg w-8 text-center">{value}</span>
         <button
           onClick={onPlus}
-          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-[color:var(--primary)] hover:text-[color:var(--primary)] transition-all"
+          className="cursor-pointer w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-[color:var(--primary)] hover:text-[color:var(--primary)] transition-all"
           type="button"
         >
           <span className="material-symbols-outlined text-sm">add</span>

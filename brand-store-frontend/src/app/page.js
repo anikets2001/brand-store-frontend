@@ -1,5 +1,7 @@
-import { redirect } from "next/navigation";
+import Image from "next/image";
 
-export default function Page() {
-  redirect("/flights/airindia");
+export default function Home() {
+  return ( 
+    <h1>HomePage</h1>
+  );
 }

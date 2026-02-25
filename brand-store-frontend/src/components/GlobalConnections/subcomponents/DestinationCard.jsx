@@ -1,10 +1,14 @@
+import Image from 'next/image';
+
 const DestinationCard = ({ country, city, img }) => {
     return (
-      <div className="relative w-80 h-125 shrink-0 group cursor-pointer border border-white/5 hover:border-(--primary)/50 transition-colors duration-500">
-        <img
+      <div className="relative w-72 sm:w-80 h-125 shrink-0 snap-start group cursor-pointer border border-white/5 hover:border-(--primary)/50 transition-colors duration-500">
+        <Image
           alt={city}
-          className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700"
           src={img}
+          fill
+          className="object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700"
+          sizes="320px"
         />
         <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-90" />
         <div className="absolute bottom-8 left-8 right-8 border-t border-white/20 pt-6 transition-all duration-500 group-hover:border-(--primary)/50">

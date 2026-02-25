@@ -1,8 +1,9 @@
 import React from 'react';
-import { cities } from './config';
+import { cities as defaultCities } from './config';
 import CityBadge from './subcomponents/CityBadge';
 
-const CitiesSection = () => {
+const CitiesSection = ({ cities = defaultCities }) => {
+  if (!cities?.length) return null;
   return (
     <section className="py-20 bg-[#0F0F0F] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,4 +23,4 @@ const CitiesSection = () => {
   );
 };
 
-export default CitiesSection
+export default CitiesSection;

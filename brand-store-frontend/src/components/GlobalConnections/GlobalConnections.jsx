@@ -1,7 +1,8 @@
-import { destinations } from './config';
+import { destinations as defaultDestinations } from './config';
 import DestinationCard from './subcomponents/DestinationCard';
 
-const GlobalConnections = () => {
+const GlobalConnections = ({ destinations = defaultDestinations }) => {
+  if (!destinations?.length) return null;
   return (
     <section className="py-32 bg-[#050505] relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[color:var(--primary)]/30 to-transparent" />
@@ -13,16 +14,16 @@ const GlobalConnections = () => {
           <h2 className="font-display text-4xl text-white">100+ Destinations</h2>
         </div>
         <div className="hidden md:flex space-x-4">
-          <button className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:border-[color:var(--primary)] hover:text-[color:var(--primary)] text-white transition-all duration-300 group">
+          <button className="cursor-pointer w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:border-[color:var(--primary)] hover:text-[color:var(--primary)] text-white transition-all duration-300 group">
             <span className="material-icons text-sm group-hover:-translate-x-1 transition-transform">west</span>
           </button>
-          <button className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:border-[color:var(--primary)] hover:text-[color:var(--primary)] text-white transition-all duration-300 group">
+          <button className="cursor-pointer w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:border-[color:var(--primary)] hover:text-[color:var(--primary)] text-white transition-all duration-300 group">
             <span className="material-icons text-sm group-hover:translate-x-1 transition-transform">east</span>
           </button>
         </div>
       </div>
 
-      <div className="flex overflow-x-auto space-x-8 px-4 md:px-[calc((100vw-80rem)/2)] pb-12 hide-scroll scroll-smooth">
+      <div className="flex overflow-x-auto overflow-y-hidden space-x-6 md:space-x-8 px-4 sm:px-6 md:px-[calc((100vw-80rem)/2)] pb-8 md:pb-12 hide-scroll scroll-smooth snap-x snap-mandatory gap-4 md:gap-0">
         {destinations.map((destination) => (
           <DestinationCard
             key={destination.id}

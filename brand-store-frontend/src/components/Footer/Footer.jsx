@@ -1,23 +1,35 @@
+'use client';
+
 import Image from 'next/image';
-import React from 'react'
+import React from 'react';
+import { useAirline } from '@/context/AirlineContext';
 
 const Footer = () => {
-    return (
-        <footer className="bg-black text-white pt-4 border-t border-white/10 fixed bottom-0 w-full z-99">
-            <div className="px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col md:flex-row justify-between items-center pb-4 border-b border-white/10">
-                    <div className="mb-8 md:mb-0">
-                        <Image src={'/images/air-india-logo.svg'} alt="Air India Logo" width={100} height={100} />
-
-                        {/* <div className="text-[10px] uppercase tracking-[0.4em] text-white/40 mt-2 pl-1">Airways Abu Dhabi</div> */}
-                    </div>
-                    <button className="bg-white text-black px-10 py-4 rounded-sm font-bold uppercase tracking-[0.2em] text-xs hover:bg-(--primary) hover:text-white transition-colors duration-300">
-                        Book Now With Air-India
-                    </button>
-                </div>
-            </div>
-        </footer>
-    )
-}
+  const airline = useAirline();
+  if (!airline?.config) return null;
+  const { brand } = airline.config;
+  return (
+    <footer className="footer-responsive bg-black text-white border-t border-white/10 fixed bottom-0 left-0 right-0 w-full z-99 opacity-85">
+      <div className="px-4 py-4 sm:px-6 sm:py-4 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 max-w-7xl mx-auto">
+          {/* CTA first on mobile for prominence */}
+          <button className="cursor-pointer w-full sm:w-auto min-h-[48px] px-6 py-3.5 sm:py-4 rounded-lg sm:rounded-sm font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-xs sm:text-xs hover:bg-(--primary) hover:text-white transition-colors duration-300 touch-manipulation bg-white text-black text-center order-1 sm:order-2">
+            {brand.bookCtaText || `Book Now With ${brand.name}`}
+          </button>
+          {/* Logo: centered on mobile, left on desktop; width allows full logo (text + symbol) */}
+          <div className="hidden sm:flex relative h-10 w-28 sm:w-32 md:h-12 md:w-40 lg:w-44 shrink-0 order-2 sm:order-1 mx-auto sm:mx-0 overflow-visible">
+            <Image
+              src={brand.logoUrl}
+              alt={`${brand.displayName || brand.name} Logo`}
+              fill
+              className="object-contain object-center sm:object-left"
+              sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, (max-width: 1024px) 176px, 208px"
+            />
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;

@@ -1,7 +1,16 @@
+'use client';
+
 import React from 'react';
-import { businessStudioImage } from '@/utils/constants';
+import Image from 'next/image';
+import { useAirline } from '@/context/AirlineContext';
 
 const ExceptionalComfort = () => {
+  const airline = useAirline();
+  const hero = airline?.config?.hero || {};
+  const imageSrc = hero.businessImage ?? hero.defaultBackgroundImage ?? '';
+
+  if (!imageSrc) return null;
+
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-(--background-charcoal)">
       <div className="max-w-5xl mx-auto">
@@ -11,11 +20,13 @@ const ExceptionalComfort = () => {
         </div>
 
         <div className="relative rounded-sm overflow-hidden border border-(--primary)/30 group shadow-2xl">
-          <div className="relative h-125">
-            <img
+          <div className="relative h-56 sm:h-72 md:h-96 lg:h-125">
+            <Image
               alt="Business Studio"
-              className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-1000"
-              src={businessStudioImage}
+              src={imageSrc}
+              fill
+              className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-1000"
+              sizes="(max-width: 1024px) 100vw, 1024px"
             />
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-700 flex items-center justify-center">
               <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md border border-(--primary)/40 flex items-center justify-center cursor-pointer hover:bg-white/20 hover:scale-110 transition-all duration-300">

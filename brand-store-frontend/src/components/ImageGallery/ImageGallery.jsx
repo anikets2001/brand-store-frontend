@@ -1,16 +1,17 @@
-import Image from "next/image";
-import { images } from "./config";
+import Image from 'next/image';
+import { images as defaultImages } from './config';
 
- const ImageGallery = () => {
+const ImageGallery = ({ images = defaultImages }) => {
+  if (!images?.length) return null;
   return (
-    <section className="py-32 bg-black">
+    <section className="lg:py-32 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="text-center mb-16">
-          <h2 className="font-display text-5xl md:text-6xl text-gold-gradient mb-4 drop-shadow-md">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gold-gradient mb-4 drop-shadow-md px-2">
             Discover the Extraordinary
           </h2>
-          <div className="w-32 h-px bg-linear-to-r from-transparent via-primary to-transparent mx-auto mt-8" />
+          <div className="w-24 md:w-32 h-px bg-linear-to-r from-transparent via-primary to-transparent mx-auto mt-6 md:mt-8" />
         </div>
 
         {/* Grid */}

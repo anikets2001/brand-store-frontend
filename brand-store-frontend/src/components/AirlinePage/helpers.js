@@ -1,5 +1,3 @@
-import { businessImage, economyImage, firstImage } from '@/utils/constants';
-
 export function getPassengerDisplay(passengers) {
   let displayText = `${passengers.adults} Adult${passengers.adults > 1 ? 's' : ''}`;
   if (passengers.children > 0) displayText += `, ${passengers.children} Child${passengers.children > 1 ? 'ren' : ''}`;
@@ -18,24 +16,26 @@ export function applyPremiumTheme(
   setHeaderImg,
   setHeaderAlt,
   setHeaderFilter,
-  setHeaderOpacity
+  setHeaderOpacity,
+  hero
 ) {
+  const h = hero || {};
   setPremiumMode(mode);
   setHeaderOpacity(0);
   setTimeout(() => {
     if (mode === 'business') {
-      setHeaderImg(businessImage);
-      setHeaderAlt('Etihad Business Studio Interior');
+      setHeaderImg(h.businessImage ?? h.defaultBackgroundImage ?? '');
+      setHeaderAlt('Business Studio Interior');
       setHeaderFilter('brightness(0.75) contrast(1.1) saturate(1.1)');
       setHeaderOpacity(0.95);
     } else if (mode === 'first') {
-      setHeaderImg(firstImage);
+      setHeaderImg(h.firstImage ?? h.defaultBackgroundImage ?? '');
       setHeaderAlt('Premium First Class');
       setHeaderFilter('');
       setHeaderOpacity(0.95);
     } else {
-      setHeaderImg(economyImage);
-      setHeaderAlt('High Altitude Clouds');
+      setHeaderImg(h.economyImage ?? h.defaultBackgroundImage ?? '');
+      setHeaderAlt(h.defaultBackgroundAlt || 'High Altitude Clouds');
       setHeaderFilter('');
       setHeaderOpacity(0.9);
     }
@@ -47,7 +47,8 @@ export function removePremiumTheme(
   setHeaderImg,
   setHeaderAlt,
   setHeaderFilter,
-  setHeaderOpacity
+  setHeaderOpacity,
+  hero
 ) {
   applyPremiumTheme(
     'economy',
@@ -55,7 +56,8 @@ export function removePremiumTheme(
     setHeaderImg,
     setHeaderAlt,
     setHeaderFilter,
-    setHeaderOpacity
+    setHeaderOpacity,
+    hero
   );
 }
 
@@ -76,7 +78,8 @@ export function onDone(
   setHeaderImg,
   setHeaderAlt,
   setHeaderFilter,
-  setHeaderOpacity
+  setHeaderOpacity,
+  hero
 ) {
   setDropdownOpen(false);
   if (selectedClass === 'business' || selectedClass === 'first') {
@@ -86,7 +89,8 @@ export function onDone(
       setHeaderImg,
       setHeaderAlt,
       setHeaderFilter,
-      setHeaderOpacity
+      setHeaderOpacity,
+      hero
     );
   } else {
     removePremiumTheme(
@@ -94,29 +98,24 @@ export function onDone(
       setHeaderImg,
       setHeaderAlt,
       setHeaderFilter,
-      setHeaderOpacity
+      setHeaderOpacity,
+      hero
     );
   }
 }
 
 export function getHeroTitleClass(premiumMode) {
   return premiumMode === 'business' || premiumMode === 'first'
-    ? 'font-display text-5xl md:text-7xl lg:text-9xl text-white tracking-wide leading-tight hero-title-shadow'
-    : 'font-display text-5xl md:text-7xl lg:text-8xl text-white tracking-wide leading-none drop-shadow-2xl transition-all duration-700';
+    ? 'font-display text-3xl sm:text-5xl md:text-7xl lg:text-9xl text-white tracking-wide leading-tight hero-title-shadow px-2'
+    : 'font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-white tracking-wide leading-none drop-shadow-2xl transition-all duration-700 px-2';
 }
 
-export function getHeroTitleHtml(premiumMode) {
-  return premiumMode === 'business' || premiumMode === 'first'
-    ? 'The Art of <br/><span class="text-gold-gradient italic pr-2 font-light">Arriving</span>'
-    : 'Fly Beyond <br /><span class="text-gold-gradient italic pr-2 font-light">the Expected</span>';
-}
-
-export function getHeroSubtitle(premiumMode) {
-  if (premiumMode === 'business') {
-    return 'Exclusively Business';
-  } else if (premiumMode === 'first') {
-    return 'Exclusively First';
-  } else {
-    return 'Curated for the connoisseur of travel';
+export function getHeroTitleHtml(premiumMode, hero) {
+  const h = hero || {};
+  if (premiumMode === 'business' && h.businessTitleHtml) return h.businessTitleHtml;
+  if (premiumMode === 'first' && h.firstTitleHtml) return h.firstTitleHtml;
+  if (premiumMode === 'business' || premiumMode === 'first') {
+    return 'The Art of <br/><span class="text-gold-gradient italic pr-2 font-light">Arriving</span>';
   }
+  return h.defaultTitleHtml || 'Fly Beyond <br /><span class="text-gold-gradient italic pr-2 font-light">the Expected</span>';
 }

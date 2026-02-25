@@ -1,7 +1,8 @@
-import { offers } from './config';
+import { offers as defaultOffers } from './config';
 import OfferCard from './subcomponents/OfferCard';
 
-const OffersSection = () => {
+const OffersSection = ({ offers = defaultOffers }) => {
+  if (!offers?.length) return null;
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/5 bg-[color:var(--background-charcoal)]">
       <div className="flex justify-between items-end mb-12">

@@ -110,7 +110,7 @@ const DatesDropdown = ({
 
             <button
               onClick={onClose}
-              className="w-full bg-(--primary) hover:bg-(--primary-dark) text-(--navy-deep) font-bold uppercase tracking-[0.15em] text-xs py-3 rounded transition-colors duration-300"
+              className="cursor-pointer w-full bg-(--primary) hover:bg-(--primary-dark) text-(--navy-deep) font-bold uppercase tracking-[0.15em] text-xs py-3 rounded transition-colors duration-300"
             >
               Done
             </button>

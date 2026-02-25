@@ -1,11 +1,15 @@
+import Image from 'next/image';
+
 const CityBadge = ({ city, sub, img }) => {
     return (
         <div className="flex flex-col items-center group cursor-pointer hover:-translate-y-2 transition-transform duration-300">
-            <div className="w-20 h-20 rounded-full overflow-hidden mb-5 border border-white/10 group-hover:border-(--primary) transition-all p-1">
-                <img
+            <div className="relative w-20 h-20 rounded-full overflow-hidden mb-5 border border-white/10 group-hover:border-(--primary) transition-all p-1">
+                <Image
                     alt={city}
-                    className="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500"
                     src={img}
+                    fill
+                    className="object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500"
+                    sizes="80px"
                 />
             </div>
             <h4 className="font-bold text-sm text-white uppercase tracking-wider">{city}</h4>
