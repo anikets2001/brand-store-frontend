@@ -10,6 +10,7 @@ const CityBadge = ({ city, sub, img }) => {
                     fill
                     className="object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500"
                     sizes="80px"
+                    fetchPriority="low"
                 />
             </div>
             <h4 className="font-bold text-sm text-white uppercase tracking-wider">{city}</h4>

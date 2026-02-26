@@ -9,6 +9,7 @@ const DestinationCard = ({ country, city, img }) => {
           fill
           className="object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700"
           sizes="320px"
+          fetchPriority="low"
         />
         <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-90" />
         <div className="absolute bottom-8 left-8 right-8 border-t border-white/20 pt-6 transition-all duration-500 group-hover:border-(--primary)/50">

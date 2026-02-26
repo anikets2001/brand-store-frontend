@@ -44,8 +44,9 @@ const HeroBanner = ({
             src={headerImg}
             fill
             className="object-cover scale-105 float-slow transition-opacity duration-1000"
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, 100vw"
             priority
+            fetchPriority="high"
           />
         </div>
       </div>

@@ -10,6 +10,7 @@ const OfferCard = ({ tag, headline, desc, code, img }) => {
           fill
           className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
           sizes="(max-width: 768px) 100vw, 33vw"
+          fetchPriority="low"
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent p-10 flex flex-col justify-center">

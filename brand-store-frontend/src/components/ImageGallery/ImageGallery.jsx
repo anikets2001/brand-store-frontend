@@ -29,7 +29,8 @@ const ImageGallery = ({ images = defaultImages }) => {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                 sizes="(max-width: 768px) 100vw, 33vw"
-                priority={index < 3}
+                priority={index < 2}
+                fetchPriority={index < 2 ? 'high' : 'low'}
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
             </div>

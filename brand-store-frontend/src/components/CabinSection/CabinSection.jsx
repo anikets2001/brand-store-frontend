@@ -1,6 +1,7 @@
 'use client';
 
 import { useAirline } from '@/context/AirlineContext';
+import LazyVideo from '@/components/ui/LazyVideo';
 
 const CabinSection = () => {
   const airline = useAirline();
@@ -23,6 +24,7 @@ const CabinSection = () => {
         <div className="space-y-12 md:space-y-20">
           {videos.map((item, index) => {
             const swapOrder = index % 2 === 1;
+            const isFirst = index === 0;
             return (
               <div
                 key={item.id}
@@ -31,14 +33,14 @@ const CabinSection = () => {
                 <div
                   className={`relative aspect-video md:aspect-[16/10] rounded-sm overflow-hidden bg-black border border-white/10 ${swapOrder ? 'md:order-2' : 'md:order-1'}`}
                 >
-                  <video
+                  <LazyVideo
                     src={item.videoSrc}
                     className="w-full h-full object-contain"
                     muted
                     loop
-                    autoPlay
+                    autoPlay={isFirst}
                     controls
-                    preload="metadata"
+                    preloadWhenVisible="metadata"
                     aria-label={item.headline}
                   />
                   <div className="absolute inset-0 bg-black/20 pointer-events-none" />

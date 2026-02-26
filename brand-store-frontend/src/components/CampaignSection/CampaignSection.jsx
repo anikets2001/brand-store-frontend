@@ -1,6 +1,7 @@
 "use client";
 
 import { useAirline } from "@/context/AirlineContext";
+import LazyVideo from "@/components/ui/LazyVideo";
 
 const CampaignSection = () => {
   const airline = useAirline();
@@ -13,14 +14,14 @@ const CampaignSection = () => {
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="relative aspect-video rounded-sm overflow-hidden bg-black border border-white/10">
-            <video
+            <LazyVideo
               src={campaign.videoSrc}
               className="w-full h-full object-cover"
               muted
               loop
               autoPlay
               controls
-              preload="metadata"
+              preloadWhenVisible="metadata"
               aria-label={campaign.headline}
             />
             <div className="absolute inset-0 bg-black/10 pointer-events-none" />

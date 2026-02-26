@@ -2,6 +2,12 @@
 
 import { useAirline } from '@/context/AirlineContext';
 
+/**
+ * VR experiences are linked only (target="_blank"). WebGL/Unity builds are not
+ * loaded on this page—they load only when the user clicks a link. This keeps
+ * initial page load light.
+ */
+
 /** Build full URL to a VR WebGL index.html (path relative to vrBasePath) */
 function getVrExperienceUrl(vrBasePath, path) {
   if (!vrBasePath || !path) return '#';

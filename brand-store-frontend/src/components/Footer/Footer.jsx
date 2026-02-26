@@ -24,6 +24,7 @@ const Footer = () => {
               fill
               className="object-contain object-center sm:object-left"
               sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, (max-width: 1024px) 176px, 208px"
+              fetchPriority="low"
             />
           </div>
         </div>

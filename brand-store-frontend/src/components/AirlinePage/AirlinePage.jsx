@@ -1,16 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { useAirline } from '@/context/AirlineContext';
 import Header from '../Header/Header';
 import HeroBanner from '../HeroBanner/HeroBanner';
-import CabinSection from '../CabinSection/CabinSection';
-// import VRLinksSection from '../VRLinksSection/VRLinksSection';
-import ExperienceSection from '../ExperienceSection/ExperienceSection';
-import CampaignSection from '../CampaignSection/CampaignSection';
-import NetworkProwess from '../NetworkProwess/NetworkProwess';
-import WhatsNewSection from '../WhatsNewSection/WhatsNewSection';
-import SocialHighlightsSection from '../SocialHighlightsSection/SocialHighlightsSection';
 import Footer from '../Footer/Footer';
 import {
   getPassengerDisplay,
@@ -20,6 +14,37 @@ import {
   getHeroTitleClass,
   getHeroTitleHtml,
 } from './helpers';
+
+const sectionLoading = () => <div className="min-h-[120px]" aria-hidden />;
+
+const CabinSection = dynamic(() => import('../CabinSection/CabinSection'), {
+  loading: sectionLoading,
+  ssr: true,
+});
+const VRLinksSection = dynamic(() => import('../VRLinksSection/VRLinksSection'), {
+  loading: sectionLoading,
+  ssr: true,
+});
+const ExperienceSection = dynamic(() => import('../ExperienceSection/ExperienceSection'), {
+  loading: sectionLoading,
+  ssr: true,
+});
+const CampaignSection = dynamic(() => import('../CampaignSection/CampaignSection'), {
+  loading: sectionLoading,
+  ssr: true,
+});
+const NetworkProwess = dynamic(() => import('../NetworkProwess/NetworkProwess'), {
+  loading: sectionLoading,
+  ssr: true,
+});
+const WhatsNewSection = dynamic(() => import('../WhatsNewSection/WhatsNewSection'), {
+  loading: sectionLoading,
+  ssr: true,
+});
+const SocialHighlightsSection = dynamic(() => import('../SocialHighlightsSection/SocialHighlightsSection'), {
+  loading: sectionLoading,
+  ssr: true,
+});
 
 export default function AirlinePage() {
   const airline = useAirline();
@@ -90,7 +115,7 @@ export default function AirlinePage() {
       <CabinSection />
 
       {/* SECTION: Explore cabins in VR */}
-      {/* <VRLinksSection /> */}
+      <VRLinksSection />
 
       {/* SECTION: Elevated Journeys */}
       <ExperienceSection />

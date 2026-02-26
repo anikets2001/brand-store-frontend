@@ -27,6 +27,7 @@ const ExceptionalComfort = () => {
               fill
               className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-1000"
               sizes="(max-width: 1024px) 100vw, 1024px"
+              fetchPriority="low"
             />
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-700 flex items-center justify-center">
               <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md border border-(--primary)/40 flex items-center justify-center cursor-pointer hover:bg-white/20 hover:scale-110 transition-all duration-300">
