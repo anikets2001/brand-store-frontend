@@ -7,21 +7,16 @@
 /** Must match basePath in next.config.mjs so image requests use the correct URL */
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '/brand-store';
 
-const BASE =
-  `${BASE_PATH}/assets/air-india/air-india-brand-store/Brand Page- Updated Assets/Brand Assets`;
-
 /** Build full asset URL and encode spaces/special chars so images load correctly */
 
 // Cover & logo (1- Aircraft Image_Logo_Background)
-const COVER = '1- Aircraft Image_Logo_Background';
-const heroCoverImage = 'https://ns.yatracdn.com/common/airIndia/Reference.jpg';
-
-const imgWiFi = 'https://ns.yatracdn.com/common/airIndia/in-flight-wifi.jpg';
-const imgSignatureAmenities = 'https://ns.yatracdn.com/common/airIndia/Business_Class_Coupe.jpg';
-const imgGourmetDining = 'https://ns.yatracdn.com/common/airIndia/1-Business.jpg';
-const imgEntertainment = 'https://ns.yatracdn.com/common/airIndia/PEY_IFE.jpg';
-const imgMaharajaClub = 'https://ns.yatracdn.com/common/airIndia/MC.png';
-const imgLounges = 'https://ns.yatracdn.com/common/airIndia/image_22.jpg';
+const heroCoverImage = `/assets/air-india/images/aircraft-images/Reference.jpg`;
+const imgWiFi = `/assets/air-india/images/experience/in-flight-wifi.jpg`;
+const imgSignatureAmenities = `/assets/air-india/images/experience/business-class-coupe.jpg`;
+const imgGourmetDining = `/assets/air-india/images/experience/business.jpg`;
+const imgEntertainment = `/assets/air-india/images/experience/PEY_IFE.jpg`;
+const imgMaharajaClub = `/assets/air-india/images/experience/MC.png`;
+const imgLounges = `/assets/air-india/images/experience/lounges.jpg`;
 const imgWarmHospitality = imgSignatureAmenities;
 
 
@@ -29,15 +24,14 @@ const config = {
   brand: {
     name: 'Air India',
     displayName: 'Air India',
-    logoUrl: `https://ns.yatracdn.com/common/airIndia/logo.png`,
+    logoUrl: `/assets/air-india/images/logo.png`,
     bookCtaText: 'Book Now With Air India',
-    partnerLogoUrl: `https://ns.yatracdn.com/common/airIndia/yatra-logo.png`,
+    partnerLogoUrl: `/assets/air-india/images/yatra-logo.png`,
     partnerLogoAlt: 'Yatra – booking partner',
   },
 
   assets: {
-    brandStoreBasePath: BASE,
-    vrBasePath: `${BASE_PATH}/assets/air-india/air-india-vr/VR`,
+    vrBasePath: `/assets/air-india/air-india-vr/VR`,
   },
 
   /** VR WebGL cabin experiences; path is relative to assets.vrBasePath, ending at WebGL folder that contains index.html */
@@ -240,73 +234,73 @@ const config = {
     domesticTitle: 'Domestic',
     internationalTitle: 'International',
     domesticTiles: [
-      { city: 'Amritsar', img: 'https://ns.yatracdn.com/common/airIndia/Amritsar.jpg' },
-      { city: 'Jodhpur', img: 'https://ns.yatracdn.com/common/airIndia/Jodhpur.jpg' },
-      { city: 'Bodh Gaya', img: 'https://ns.yatracdn.com/common/airIndia/Bodh_Gaya.jpg' },
-      { city: 'Kochi', img: 'https://ns.yatracdn.com/common/airIndia/Kochi.jpg' },
-      { city: 'Goa', img: 'https://ns.yatracdn.com/common/airIndia/Goa.jpg' },
-      { city: 'Kolkata', img: 'https://ns.yatracdn.com/common/airIndia/Kolkata.jpg' },
-      { city: 'Guwahati', img: 'https://ns.yatracdn.com/common/airIndia/Guwahati.jpg' },
-      { city: 'Srinagar', img: 'https://ns.yatracdn.com/common/airIndia/Srinagar.jpg' },
-      { city: 'Jaisalmer', img: 'https://ns.yatracdn.com/common/airIndia/Jaisalmer.jpg' },
-      { city: 'Varanasi', img: 'https://ns.yatracdn.com/common/airIndia/Varanasi_3.jpg' },
+      { city: 'Amritsar', img: `/assets/air-india/images/network/Domestic/Amritsar.jpg` },
+      { city: 'Jodhpur', img: `/assets/air-india/images/network/Domestic/Jodhpur.jpg` },
+      { city: 'Bodh Gaya', img: `/assets/air-india/images/network/Domestic/Bodh_Gaya.jpg` },
+      { city: 'Kochi', img: `/assets/air-india/images/network/Domestic/Kochi.jpg` },
+      { city: 'Goa', img: `/assets/air-india/images/network/Domestic/Goa.jpg` },
+      { city: 'Kolkata', img: `/assets/air-india/images/network/Domestic/Kolkata.jpg` },
+      { city: 'Guwahati', img: `/assets/air-india/images/network/Domestic/Guwahati.jpg` },
+      { city: 'Srinagar', img: `/assets/air-india/images/network/Domestic/Srinagar.jpg` },
+      { city: 'Jaisalmer', img: `/assets/air-india/images/network/Domestic/Jaisalmer.jpg` },
+      { city: 'Varanasi', img: `/assets/air-india/images/network/Domestic/Varanasi.jpg` },
     ],
     internationalTiles: [
-      { city: 'Amsterdam', country: 'Netherlands', img: 'https://ns.yatracdn.com/common/airIndia/Amsterdam_AIRINDIA_PHOTOBOOTH.jpg' },
-      { city: 'New York', country: 'USA', img: 'https://ns.yatracdn.com/common/airIndia/NewYorkAIRINDIA_PHOTOBOOTH.jpg' },
-      { city: 'Bali', country: 'Indonesia', img: 'https://ns.yatracdn.com/common/airIndia/Bali.jpg' },
-      { city: 'Paris', country: 'France', img: 'https://ns.yatracdn.com/common/airIndia/Paris_AIRINDIA_PHOTOBOOTH.jpg' },
-      { city: 'Bangkok', country: 'Thailand', img: 'https://ns.yatracdn.com/common/airIndia/Bangkok_AIRINDIA_PHOTOBOOTH.jpg' },
-      { city: 'Rome', country: 'Italy', img: 'https://ns.yatracdn.com/common/airIndia/Rome.jpg' },
-      { city: 'Dubai', country: 'UAE', img: 'https://ns.yatracdn.com/common/airIndia/Dubai_AIR_INDIA_PHOTOBOOTH.jpg' },
-      { city: 'San Francisco', country: 'USA', img: 'https://ns.yatracdn.com/common/airIndia/San_FranciscoAIRINDIA_PHOTOBOOTH.jpg' },
-      { city: 'Frankfurt', country: 'Germany', img: 'https://ns.yatracdn.com/common/airIndia/Frankfurt.jpg' },
-      { city: 'Shanghai', country: 'China', img: 'https://ns.yatracdn.com/common/airIndia/Shanghai.jpg' },
-      { city: 'Hong Kong', country: 'Hong Kong', img: 'https://ns.yatracdn.com/common/airIndia/Hong_Kong.jpg' },
-      { city: 'Singapore', country: 'Singapore', img: 'https://ns.yatracdn.com/common/airIndia/SingaporeAIRINDIA_PHOTOBOOTH.jpg' },
-      { city: 'London', country: 'UK', img: 'https://ns.yatracdn.com/common/airIndia/London_AIR_INDIA_PHOTOBOOTH.jpg' },
-      { city: 'Sydney', country: 'Australia', img: 'https://ns.yatracdn.com/common/airIndia/SydneyAIRINDIA_PHOTOBOOTH.jpg' },
-      { city: 'Tokyo', country: 'Japan', img: 'https://ns.yatracdn.com/common/airIndia/Haneda.jpg' },
+      { city: 'Amsterdam', country: 'Netherlands', img: `/assets/air-india/images/network/International/Amsterdam.jpg` },
+      { city: 'New York', country: 'USA', img: `/assets/air-india/images/network/International/New_York.jpg` },
+      { city: 'Bali', country: 'Indonesia', img: `/assets/air-india/images/network/International/Bali.jpg` },
+      { city: 'Paris', country: 'France', img: `/assets/air-india/images/network/International/Paris.jpg` },
+      { city: 'Bangkok', country: 'Thailand', img: `/assets/air-india/images/network/International/Bangkok.jpg` },
+      { city: 'Rome', country: 'Italy', img: `/assets/air-india/images/network/International/Rome.jpg` },
+      { city: 'Dubai', country: 'UAE', img: `/assets/air-india/images/network/International/Dubai.jpg` },
+      { city: 'San Francisco', country: 'USA', img: `/assets/air-india/images/network/International/San_Francisco.jpg` },
+      { city: 'Frankfurt', country: 'Germany', img: `/assets/air-india/images/network/International/Frankfurt.jpg` },
+      { city: 'Shanghai', country: 'China', img: `/assets/air-india/images/network/International/Shanghai.jpg` },
+      { city: 'Hong Kong', country: 'Hong Kong', img: `/assets/air-india/images/network/International/Hong_Kong.jpg` },
+      { city: 'Singapore', country: 'Singapore', img: `/assets/air-india/images/network/International/Singapore.jpg` },
+      { city: 'London', country: 'UK', img: `/assets/air-india/images/network/International/london.jpg` },
+      { city: 'Sydney', country: 'Australia', img: `/assets/air-india/images/network/International/Sydney.jpg` },
+      { city: 'Tokyo', country: 'Japan', img: `/assets/air-india/images/network/International/Haneda.jpg` },
     ],
   },
 
   destinations: [
-    { id: 1, country: 'India', city: 'Amritsar', img: 'https://ns.yatracdn.com/common/airIndia/Amritsar.jpg' },
-    { id: 2, country: 'India', city: 'Jodhpur', img: 'https://ns.yatracdn.com/common/airIndia/Jodhpur.jpg' },
-    { id: 3, country: 'India', city: 'Bodh Gaya', img: 'https://ns.yatracdn.com/common/airIndia/Bodh_Gaya.jpg' },
-    { id: 4, country: 'India', city: 'Kochi', img: 'https://ns.yatracdn.com/common/airIndia/Kochi.jpg' },
-    { id: 5, country: 'India', city: 'Goa', img: 'https://ns.yatracdn.com/common/airIndia/Goa.jpg' },
-    { id: 6, country: 'India', city: 'Kolkata', img: 'https://ns.yatracdn.com/common/airIndia/Kolkata.jpg' },
-    { id: 7, country: 'India', city: 'Guwahati', img: 'https://ns.yatracdn.com/common/airIndia/Guwahati.jpg' },
-    { id: 8, country: 'India', city: 'Srinagar', img: 'https://ns.yatracdn.com/common/airIndia/Srinagar.jpg' },
-    { id: 9, country: 'India', city: 'Jaisalmer', img: 'https://ns.yatracdn.com/common/airIndia/Jaisalmer.jpg' },
-    { id: 10, country: 'India', city: 'Varanasi', img: 'https://ns.yatracdn.com/common/airIndia/Varanasi (3).jpg' },
-    { id: 11, country: 'Netherlands', city: 'Amsterdam', img: 'https://ns.yatracdn.com/common/airIndia/Amsterdam AIR INDIA_PHOTOBOOTH_560 x 970mm Ctp-04.jpg' },
-    { id: 12, country: 'USA', city: 'New York', img: 'https://ns.yatracdn.com/common/airIndia/New York AIR INDIA_PHOTOBOOTH_560 x 970mm Ctp-10.jpg' },
-    { id: 13, country: 'Indonesia', city: 'Bali', img: 'https://ns.yatracdn.com/common/airIndia/Bali.jpg' },
-    { id: 14, country: 'France', city: 'Paris', img: 'https://ns.yatracdn.com/common/airIndia/Paris AIR INDIA_PHOTOBOOTH_560 x 970mm Ctp-06.jpg' },
-    { id: 15, country: 'Thailand', city: 'Bangkok', img: 'https://ns.yatracdn.com/common/airIndia/Bangkok AIR INDIA_PHOTOBOOTH_560 x 970mm Ctp-02.jpg' },
-    { id: 16, country: 'Italy', city: 'Rome', img: 'https://ns.yatracdn.com/common/airIndia/Rome.jpg' },
-    { id: 17, country: 'UAE', city: 'Dubai', img: 'https://ns.yatracdn.com/common/airIndia/Dubai AIR INDIA_PHOTOBOOTH_560 x 970mm Ctp-09.jpg' },
-    { id: 18, country: 'USA', city: 'San Francisco', img: 'https://ns.yatracdn.com/common/airIndia/San Francisco AIR INDIA_PHOTOBOOTH_560 x 970mm Ctp-03.jpg' },
-    { id: 19, country: 'Germany', city: 'Frankfurt', img: 'https://ns.yatracdn.com/common/airIndia/Frankfurt.jpg' },
-    { id: 20, country: 'China', city: 'Shanghai', img: 'https://ns.yatracdn.com/common/airIndia/Shanghai.jpg' },
-    { id: 21, country: 'Hong Kong', city: 'Hong Kong', img: 'https://ns.yatracdn.com/common/airIndia/Hong Kong.jpg' },
-    { id: 22, country: 'Singapore', city: 'Singapore', img: 'https://ns.yatracdn.com/common/airIndia/Singapore AIR INDIA_PHOTOBOOTH_560 x 970mm Ctp-08.jpg' },
-    { id: 23, country: 'UK', city: 'London', img: 'https://ns.yatracdn.com/common/airIndia/London AIR INDIA_PHOTOBOOTH_560 x 970mm Ctp-07.jpg' },
-    { id: 24, country: 'Australia', city: 'Sydney', img: 'https://ns.yatracdn.com/common/airIndia/Sydney AIR INDIA_PHOTOBOOTH_560 x 970mm Ctp-01.jpg' },
-    { id: 25, country: 'Japan', city: 'Tokyo', img: 'https://ns.yatracdn.com/common/airIndia/Haneda.jpg' },
+    { id: 1, country: 'India', city: 'Amritsar', img: `/assets/air-india/images/network/Domestic/Amritsar.jpg` },
+    { id: 2, country: 'India', city: 'Jodhpur', img: `/assets/air-india/images/network/Domestic/Jodhpur.jpg` },
+    { id: 3, country: 'India', city: 'Bodh Gaya', img: `/assets/air-india/images/network/Domestic/Bodh_Gaya.jpg` },
+    { id: 4, country: 'India', city: 'Kochi', img: `/assets/air-india/images/network/Domestic/Kochi.jpg` },
+    { id: 5, country: 'India', city: 'Goa', img: `/assets/air-india/images/network/Domestic/Goa.jpg` },
+    { id: 6, country: 'India', city: 'Kolkata', img: `/assets/air-india/images/network/Domestic/Kolkata.jpg` },
+    { id: 7, country: 'India', city: 'Guwahati', img: `/assets/air-india/images/destinations/Guwahati.jpg` },
+    { id: 8, country: 'India', city: 'Srinagar', img: `/assets/air-india/images/destinations/Srinagar.jpg` },
+    { id: 9, country: 'India', city: 'Jaisalmer', img: `/assets/air-india/images/network/Domestic/Jaisalmer.jpg` },
+    { id: 10, country: 'India', city: 'Varanasi', img: `/assets/air-india/images/network/Domestic/Varanasi.jpg` },
+    { id: 11, country: 'Netherlands', city: 'Amsterdam', img: `/assets/air-india/images/network/International/Amsterdam.jpg` },
+    { id: 12, country: 'USA', city: 'New York', img: `/assets/air-india/images/network/International/New_York.jpg` },
+    { id: 13, country: 'Indonesia', city: 'Bali', img: `/assets/air-india/images/network/International/Bali.jpg` },
+    { id: 14, country: 'France', city: 'Paris', img: `/assets/air-india/images/network/International/Paris.jpg` },
+    { id: 15, country: 'Thailand', city: 'Bangkok', img: `/assets/air-india/images/network/International/Bangkok.jpg` },
+    { id: 16, country: 'Italy', city: 'Rome', img: `/assets/air-india/images/network/International/Rome.jpg` },
+    { id: 17, country: 'UAE', city: 'Dubai', img: `/assets/air-india/images/network/International/Dubai.jpg` },
+    { id: 18, country: 'USA', city: 'San Francisco', img: `/assets/air-india/images/network/International/San_Francisco.jpg` },
+    { id: 19, country: 'Germany', city: 'Frankfurt', img: `/assets/air-india/images/network/International/Frankfurt.jpg` },
+    { id: 20, country: 'China', city: 'Shanghai', img: `/assets/air-india/images/network/International/Shanghai.jpg` },
+    { id: 21, country: 'Hong Kong', city: 'Hong Kong', img: `/assets/air-india/images/network/International/Hong_Kong.jpg` },
+    { id: 22, country: 'Singapore', city: 'Singapore', img: `/assets/air-india/images/network/International/Singapore.jpg` },
+    { id: 23, country: 'UK', city: 'London', img: `/assets/air-india/images/network/International/london.jpg` },
+    { id: 24, country: 'Australia', city: 'Sydney', img: `/assets/air-india/images/network/International/Sydney.jpg` },
+    { id: 25, country: 'Japan', city: 'Tokyo', img: `/assets/air-india/images/network/International/Haneda.jpg` },
   ],
 
   offers: [],
 
   cities: [
-    { id: 1, city: 'Amritsar', sub: 'Domestic', img: 'https://ns.yatracdn.com/common/airIndia/Amritsar.jpg' },
-    { id: 2, city: 'Jodhpur', sub: 'Domestic', img: 'https://ns.yatracdn.com/common/airIndia/Jodhpur.jpg' },
-    { id: 3, city: 'Kochi', sub: 'Domestic', img: 'https://ns.yatracdn.com/common/airIndia/Kochi.jpg' },
-    { id: 4, city: 'Goa', sub: 'Domestic', img: 'https://ns.yatracdn.com/common/airIndia/Goa.jpg' },
-    { id: 5, city: 'Kolkata', sub: 'Domestic', img: 'https://ns.yatracdn.com/common/airIndia/Kolkata.jpg' },
-    { id: 6, city: 'Srinagar', sub: 'Domestic', img: 'https://ns.yatracdn.com/common/airIndia/Srinagar.jpg' },
+    { id: 1, city: 'Amritsar', sub: 'Domestic', img: `/assets/air-india/images/network/Domestic/Amritsar.jpg` },
+    { id: 2, city: 'Jodhpur', sub: 'Domestic', img: `/assets/air-india/images/network/Domestic/Jodhpur.jpg` },
+    { id: 3, city: 'Kochi', sub: 'Domestic', img: `/assets/air-india/images/network/Domestic/Kochi.jpg` },
+    { id: 4, city: 'Goa', sub: 'Domestic', img: `/assets/air-india/images/network/Domestic/Goa.jpg` },
+    { id: 5, city: 'Kolkata', sub: 'Domestic', img: `/assets/air-india/images/network/Domestic/Kolkata.jpg` },
+    { id: 6, city: 'Srinagar', sub: 'Domestic', img: `/assets/air-india/images/network/Domestic/Srinagar.jpg` },
   ],
 
   whatsNew: {

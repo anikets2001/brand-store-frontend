@@ -5,7 +5,7 @@ import { useAirline } from '@/context/AirlineContext';
 import Header from '../Header/Header';
 import HeroBanner from '../HeroBanner/HeroBanner';
 import CabinSection from '../CabinSection/CabinSection';
-import VRLinksSection from '../VRLinksSection/VRLinksSection';
+// import VRLinksSection from '../VRLinksSection/VRLinksSection';
 import ExperienceSection from '../ExperienceSection/ExperienceSection';
 import CampaignSection from '../CampaignSection/CampaignSection';
 import NetworkProwess from '../NetworkProwess/NetworkProwess';
@@ -90,7 +90,7 @@ export default function AirlinePage() {
       <CabinSection />
 
       {/* SECTION: Explore cabins in VR */}
-      <VRLinksSection />
+      {/* <VRLinksSection /> */}
 
       {/* SECTION: Elevated Journeys */}
       <ExperienceSection />
