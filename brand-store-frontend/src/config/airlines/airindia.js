@@ -17,14 +17,14 @@ const imgGourmetDining = `/assets/air-india/images/experience/business.jpg`;
 const imgEntertainment = `/assets/air-india/images/experience/PEY_IFE.jpg`;
 const imgMaharajaClub = `/assets/air-india/images/experience/MC.png`;
 const imgLounges = `/assets/air-india/images/experience/lounges.jpg`;
-const imgWarmHospitality = imgSignatureAmenities;
+const imgWarmHospitality = `/assets/air-india/images/experience/Crew_Group.jpg`;
 
 
 const config = {
   brand: {
     name: 'Air India',
     displayName: 'Air India',
-    logoUrl: `/assets/air-india/images/logo.png`,
+    logoUrl: `/assets/air-india/images/aircraft-images/AI logo.png`,
     bookCtaText: 'Book Now With Air India',
     partnerLogoUrl: `/assets/air-india/images/yatra-logo.png`,
     partnerLogoAlt: 'Yatra – booking partner',
@@ -135,7 +135,8 @@ const config = {
   campaign: {
     headline: "India's Only Premium Economy",
     bodyCopy:
-      'Enjoy priority check-in and boarding, extra legroom, gourmet meals, hot towel to keep you fresh, all complemented by our warm and intuitive service. It is your place in the sky. It is the Premium You Deserve',
+      'Enjoy priority check-in and boarding, extra legroom, gourmet meals, hot towel to keep you fresh, all complemented by our warm and intuitive service.',
+    tagline: "It is your place in the sky, it's the premium you deserve.",
     videoSrc: 'https://ns.yatracdn.com/common/airIndia/Film_1-30sec_HD.mp4',
   },
 
@@ -191,8 +192,8 @@ const config = {
     {
       id: 7,
       title: 'World-Class Lounges',
-      line1: 'Exclusive Air India lounges now open in Bengaluru, Delhi and New York. Flagship Maharaja lounges coming soon to international terminals at New Delhi and San Francisco.',
-      line2: '',
+      line1: 'Exclusive Air India lounges now open in Bengaluru, Delhi and New York.',
+      line2: 'Flagship Maharaja lounges coming soon to international terminals at New Delhi and San Francisco.',
       imageSrc: imgLounges,
       alt: 'World-class lounges',
     },

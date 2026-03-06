@@ -23,16 +23,16 @@ const VRLinksSection = () => {
   if (!experiences?.length || !vrBasePath) return null;
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-(--background-charcoal) border-t border-white/5">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-premium-darkred section-divider">
       <div className="max-w-4xl mx-auto">
         <div className="mb-8 md:mb-10">
           <span className="text-xs font-bold tracking-[0.25em] sm:tracking-[0.3em] text-(--primary) uppercase block mb-2 md:mb-3">
             Experience
           </span>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-white">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl heading-premium">
             Explore our cabins in VR
           </h2>
-          <p className="mt-2 md:mt-3 text-white/70 text-sm md:text-base max-w-xl">
+          <p className="mt-2 md:mt-3 subtext-premium text-sm md:text-base max-w-xl">
             Step inside our cabins in your browser. Each experience opens in a new tab.
           </p>
         </div>
