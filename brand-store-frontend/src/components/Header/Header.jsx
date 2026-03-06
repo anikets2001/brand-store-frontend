@@ -10,7 +10,7 @@ const Header = () => {
   if (!airline?.config) return null;
   const { brand } = airline.config;
   return (
-    <nav className="fixed w-full top-0 z-50 bg-(--background-dark)/80 backdrop-blur-xl border-b border-white/10 opacity-85">
+    <nav className="font-airindia-sans fixed w-full top-0 z-50 bg-transparent border-b border-white/10 shadow-[0_1px_0_rgba(235,190,105,0.08)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14 sm:h-16 md:h-20 gap-3">
           <div className="flex items-center shrink-0 min-w-0">
@@ -25,7 +25,6 @@ const Header = () => {
                 />
               </Link>
             </div>
-            <span className="hidden lg:block h-10 w-px bg-white/20 ml-4 shrink-0" />
           </div>
           {brand.partnerLogoUrl && (
             <div className="relative h-8 w-20 sm:h-9 sm:w-24 md:h-10 md:w-28 shrink-0">
