@@ -4,7 +4,7 @@ import { images as defaultImages } from './config';
 const ImageGallery = ({ images = defaultImages }) => {
   if (!images?.length) return null;
   return (
-    <section className="lg:py-32 bg-black">
+    <section className="lg:py-32 bg-[#531251] section-divider">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-10 md:mb-16">

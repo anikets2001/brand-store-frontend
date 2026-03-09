@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Air India’s A350</title>
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <link rel="stylesheet" href="TemplateData/style.css">
+</head>
+
+<body class="dark">
+    <div id="unity-container" class="unity-desktop">
+        <canvas id="unity-canvas"></canvas>
+    </div>
+    <div id="blurred-image-overlay"></div>
+    <div id="loading-cover" style="display:none;">
+        <div id="unity-loading-bar">
+            <!-- <div id="unity-logo"><img src="logo.png"></div> -->
+            <div id="unity-progress-bar-empty" style="display: none;">
+                <div id="unity-progress-bar-full"></div>
+            </div>
+            <div class="spinner"></div>
+        </div>
+    </div>
+    <div id="unity-fullscreen-button" style="display: none;"></div>
+    <script>
+        const hideFullScreenButton = "";
+        const buildUrl = "Build";
+        const loaderUrl = buildUrl + "/4dcd57f70c22cfb2665fa377545d3247.loader.js";
+        const config = {
+            dataUrl: buildUrl + "/ce187538b92eaec27936b417d4bf063a.data.unityweb",
+            frameworkUrl: buildUrl + "/de123af802fea763e195a9cd51c851ba.framework.js.unityweb",
+            codeUrl: buildUrl + "/c19535d2c92187ffaf7db1e89bfe6090.wasm.unityweb",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "TATAELXSI",
+            productName: "A350",
+            productVersion: "1.0.0",
+        };
+
+        const container = document.querySelector("#unity-container");
+        const canvas = document.querySelector("#unity-canvas");
+        const loadingCover = document.querySelector("#loading-cover");
+        const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
+        const progressBarFull = document.querySelector("#unity-progress-bar-full");
+        const fullscreenButton = document.querySelector("#unity-fullscreen-button");
+        const spinner = document.querySelector('.spinner');
+        const blurredOverlay = document.querySelector("#blurred-image-overlay");
+
+        const canFullscreen = (function () {
+            for (const key of [
+                'exitFullscreen',
+                'webkitExitFullscreen',
+                'webkitCancelFullScreen',
+                'mozCancelFullScreen',
+                'msExitFullscreen',
+            ]) {
+                if (key in document) {
+                    return true;
+                }
+            }
+            return false;
+        }());
+
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            container.className = "unity-mobile";
+            //config.devicePixelRatio = 1;
+        }
+        loadingCover.style.display = "";
+        blurredOverlay.style.display = "";
+
+        const script = document.createElement("script");
+        script.src = loaderUrl;
+        script.onload = () => {
+            createUnityInstance(canvas, config, (progress) => {
+                spinner.style.display = "none";
+                progressBarEmpty.style.display = "";
+                progressBarFull.style.width = `${100 * progress}%`;
+            }).then((unityInstance) => {
+                // loadingCover.style.display = "none";
+                window.unityInstance = unityInstance;
+                if (canFullscreen) {
+                    if (!hideFullScreenButton) {
+                        fullscreenButton.style.display = "";
+                    }
+                    fullscreenButton.onclick = () => {
+                        unityInstance.SetFullscreen(1);
+                    };
+                }
+            }).catch((message) => {
+                alert(message);
+            });
+        };
+        document.body.appendChild(script);
+    </script>
+    <script>
+        // Hide only the progress bar, not the whole cover/background
+        window.HideOverlayUI = function () {
+            console.log("##HideOverlayUI called from Unity");
+            progressBarEmpty.style.display = "none";
+            blurredOverlay.style.display = "none";
+            loadingCover.style.display = "none";
+        };
+    </script>
+    <script>
+        document.addEventListener("fullscreenchange", () => {
+            const canvas = document.getElementById("unity-canvas");
+            const isFullscreen = document.fullscreenElement === canvas;
+
+            // When user presses Esc, browser exits fullscreen but Unity doesn’t know.
+            if (!isFullscreen && window.unityInstance) {
+                console.log("Browser exited fullscreen, notifying Unity...");
+                window.unityInstance.SendMessage("WebGLManager", "OnExitFullscreen");
+            }
+        });
+    </script>
+
+</body>
+
+</html>

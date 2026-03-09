@@ -53,7 +53,7 @@ const FromDropdown = ({ selectedAirport, onSelect, isOpen, onToggle, onClose }) 
 
       {isOpen && (
         <div
-          className="absolute w-full md:w-87.5 bg-[#0B1019]/95 backdrop-blur-xl border border-(--primary)/30 rounded-lg shadow-2xl overflow-hidden z-50"
+          className="absolute w-full md:w-87.5 airindia-panel border border-(--primary)/20 rounded-lg overflow-hidden z-50"
           style={{ top: '100%', left: 0, marginTop: 8 }}
           onClick={(e) => e.stopPropagation()}
         >

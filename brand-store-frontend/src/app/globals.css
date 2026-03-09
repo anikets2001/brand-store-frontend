@@ -32,7 +32,7 @@ html {
 
 body {
   font-family: Lato, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: linear-gradient(180deg, #531251 0%, #b61032 100%);
+  background: linear-gradient(165deg, #531251 0%, rgba(83,18,81,0.98) 28%, rgba(182,16,50,0.96) 55%, #b61032 85%, #b61032 100%);
   background-attachment: fixed;
   color: var(--text-main-dark);
   overflow-x: hidden;
@@ -41,35 +41,41 @@ body {
 
 /* Premium section backgrounds – brand colours only (#531251 #b61032 #da0e29 #ebbe69 #f9f6ee) */
 .bg-premium-purple {
-  background: linear-gradient(180deg, #531251 0%, rgba(83,18,81,0.96) 50%, #531251 100%);
+  background: linear-gradient(180deg, #531251 0%, rgba(83,18,81,0.97) 40%, rgba(83,18,81,0.98) 70%, #531251 100%);
+  box-shadow: inset 0 1px 0 rgba(249, 246, 238, 0.03);
 }
 .bg-premium-darkred {
-  background: linear-gradient(180deg, #b61032 0%, rgba(182,16,50,0.96) 50%, #b61032 100%);
+  background: linear-gradient(180deg, #b61032 0%, rgba(182,16,50,0.97) 45%, rgba(182,16,50,0.98) 75%, #b61032 100%);
+  box-shadow: inset 0 1px 0 rgba(249, 246, 238, 0.03);
 }
 .bg-premium-red {
-  background: linear-gradient(180deg, #da0e29 0%, rgba(218,14,41,0.96) 50%, #da0e29 100%);
+  background: linear-gradient(180deg, #da0e29 0%, rgba(218,14,41,0.97) 50%, #da0e29 100%);
+  box-shadow: inset 0 1px 0 rgba(249, 246, 238, 0.03);
 }
 .bg-premium-blend {
-  background: linear-gradient(180deg, #531251 0%, #b61032 100%);
+  background: linear-gradient(175deg, #531251 0%, rgba(83,18,81,0.6) 50%, #b61032 100%);
 }
 .section-divider {
-  border-top: 1px solid rgba(235, 190, 105, 0.15);
-  box-shadow: 0 1px 0 rgba(249, 246, 238, 0.04);
+  border-top: 1px solid rgba(235, 190, 105, 0.12);
+  box-shadow: 0 1px 0 rgba(249, 246, 238, 0.06), inset 0 1px 0 rgba(0, 0, 0, 0.08);
 }
 .premium-card {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(235, 190, 105, 0.08);
+  border: 1px solid rgba(249, 246, 238, 0.06);
+  box-shadow: 0 1px 0 rgba(249, 246, 238, 0.04), 0 8px 32px rgba(83, 18, 81, 0.35), 0 0 0 1px rgba(235, 190, 105, 0.06);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
 }
 .premium-card:hover {
-  border-color: rgba(235, 190, 105, 0.28);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(235, 190, 105, 0.14);
+  border-color: rgba(235, 190, 105, 0.22);
+  box-shadow: 0 1px 0 rgba(249, 246, 238, 0.06), 0 12px 40px rgba(83, 18, 81, 0.4), 0 0 0 1px rgba(235, 190, 105, 0.14);
 }
 .heading-premium {
   color: #f9f6ee;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  text-shadow: 0 1px 2px rgba(83, 18, 81, 0.2), 0 0 1px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.01em;
 }
 .subtext-premium {
-  color: rgba(249, 246, 238, 0.78);
+  color: rgba(249, 246, 238, 0.82);
+  text-shadow: 0 0 1px rgba(83, 18, 81, 0.1);
 }
 
 /* Custom styles for the brand store start */
@@ -105,38 +111,49 @@ body {
   scrollbar-width: none;
 }
 
+/* Brand-colour dark panel for widgets/dropdowns (premium glass) */
+.airindia-panel {
+  background: linear-gradient(160deg, rgba(83, 18, 81, 0.92) 0%, rgba(182, 16, 50, 0.88) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(249, 246, 238, 0.06);
+  box-shadow: 0 1px 0 rgba(249, 246, 238, 0.04), 0 16px 48px rgba(83, 18, 81, 0.4);
+}
+
+/* Glass panel using brand colours only (purple/dark red base) */
 .glass-panel {
-  background: rgba(11, 16, 25, 0.65);
+  background: linear-gradient(145deg, rgba(83, 18, 81, 0.82) 0%, rgba(182, 16, 50, 0.78) 100%);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(249, 246, 238, 0.06);
+  box-shadow: 0 1px 0 rgba(249, 246, 238, 0.04), 0 20px 50px rgba(83, 18, 81, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .text-gold-gradient {
-  background: linear-gradient(to right, var(--airindia-gold-light), var(--airindia-gold-mid), var(--airindia-gold-light), var(--airindia-gold-dark));
+  background: linear-gradient(110deg, var(--airindia-gold-light) 0%, var(--airindia-gold-mid) 28%, var(--airindia-gold-light) 52%, var(--airindia-gold-dark) 78%, var(--airindia-gold-mid) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% auto;
-  animation: shine 5s linear infinite;
-  text-shadow: 0 0 20px rgba(235, 190, 105, 0.2);
+  animation: shine 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 1px rgba(83, 18, 81, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
 }
 
 .premium-theme {
-  transition: all 0.6s ease;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .premium-glow {
-  box-shadow: 0 0 40px rgba(214, 176, 109, 0.4), 0 0 80px rgba(214, 176, 109, 0.2);
+  box-shadow: 0 0 32px rgba(235, 190, 105, 0.25), 0 0 64px rgba(235, 190, 105, 0.12), 0 1px 0 rgba(249, 246, 238, 0.05);
 }
 
 .premium-border {
-  border-color: rgba(214, 176, 109, 0.5);
+  border-color: rgba(235, 190, 105, 0.35);
+  box-shadow: 0 0 0 1px rgba(249, 246, 238, 0.03);
 }
 
 .hero-title-shadow {
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 40px rgba(214, 176, 109, 0.3);
+  text-shadow: 0 2px 8px rgba(83, 18, 81, 0.4), 0 4px 24px rgba(0, 0, 0, 0.35), 0 0 32px rgba(235, 190, 105, 0.2);
 }
 
 @keyframes shine {
