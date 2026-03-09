@@ -4,8 +4,8 @@ import DestinationCard from './subcomponents/DestinationCard';
 const GlobalConnections = ({ destinations = defaultDestinations }) => {
   if (!destinations?.length) return null;
   return (
-    <section className="py-32 bg-[#050505] relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[color:var(--primary)]/30 to-transparent" />
+    <section className="py-32 bg-[#531251] relative overflow-hidden section-divider">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[color:var(--primary)]/25 to-transparent" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 flex flex-col md:flex-row justify-between items-end">
         <div>
           <span className="text-xs font-bold tracking-[0.3em] text-[color:var(--primary)] uppercase block mb-3">

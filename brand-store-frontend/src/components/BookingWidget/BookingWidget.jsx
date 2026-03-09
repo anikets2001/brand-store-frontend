@@ -35,7 +35,7 @@ const BookingWidget = ({
     <div className="max-w-6xl mx-auto">
       <div
         className={[
-          'bg-[#0B1019]/70 backdrop-blur-2xl border border-(--primary)/20 rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-visible group mt-4 z-40',
+          'airindia-panel rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-10 border border-white/[0.06] shadow-[0_1px_0_rgba(249,246,238,0.04),0_20px_50px_rgba(83,18,81,0.4)] relative overflow-visible group mt-4 z-40',
           premiumMode !== 'economy' ? 'premium-glow premium-border' : '',
         ].join(' ')}
         style={

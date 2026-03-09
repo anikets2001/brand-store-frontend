@@ -10,7 +10,7 @@ const Header = () => {
   if (!airline?.config) return null;
   const { brand } = airline.config;
   return (
-    <nav className="font-airindia-sans fixed w-full top-0 z-50 bg-transparent border-b border-white/10 shadow-[0_1px_0_rgba(235,190,105,0.08)]">
+    <nav className="font-airindia-sans fixed w-full top-0 z-50 bg-transparent border-b border-[#f9f6ee]/10 shadow-[0_1px_0_rgba(235,190,105,0.1),0_1px_0_rgba(249,246,238,0.03)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14 sm:h-16 md:h-20 gap-3">
           <div className="flex items-center shrink-0 min-w-0">

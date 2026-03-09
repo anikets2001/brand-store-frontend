@@ -5,12 +5,12 @@ import CityBadge from './subcomponents/CityBadge';
 const CitiesSection = ({ cities = defaultCities }) => {
   if (!cities?.length) return null;
   return (
-    <section className="py-20 bg-[#0F0F0F] border-t border-white/5">
+    <section className="py-20 bg-[#531251] section-divider">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center mb-16">
-          <div className="h-px w-20 bg-white/10" />
-          <h2 className="font-display text-2xl md:text-3xl text-white px-8">From 11 Cities to the World</h2>
-          <div className="h-px w-20 bg-white/10" />
+          <div className="h-px w-20 bg-[#f9f6ee]/15" />
+          <h2 className="font-display text-2xl md:text-3xl text-[#f9f6ee] px-8">From 11 Cities to the World</h2>
+          <div className="h-px w-20 bg-[#f9f6ee]/15" />
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
