@@ -42,6 +42,7 @@ const HeroBanner = ({
             sizes="(max-width: 768px) 100vw, 100vw"
             priority
             fetchPriority="high"
+
           />
         </div>
       </div>
