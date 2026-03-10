@@ -22,12 +22,17 @@ const SocialHighlightsSection = () => {
           </p>
         </div>
 
-        {/* Reels: one video per row, stacked vertically, portrait 9:16 */}
-        <div className="flex flex-col items-center gap-6 md:gap-8">
-          {items.map((item, index) => (
+        {/* Reels: 3 per row on desktop, center single item in last row */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          {items.map((item, index) => {
+            const isLast = index === items.length - 1;
+            const hasSingleInLastRow = items.length % 3 === 1;
+            const centerLastOnDesktop = isLast && hasSingleInLastRow ? 'lg:col-start-2' : '';
+
+            return (
             <div
               key={item.id}
-              className="group relative w-full max-w-md aspect-[9/16] rounded-xl overflow-hidden bg-black premium-card transition-all duration-300"
+              className={`group relative w-full aspect-[9/16] rounded-xl overflow-hidden bg-black premium-card transition-all duration-300 ${centerLastOnDesktop}`}
             >
               <LazyVideo
                 src={item.videoSrc}
@@ -39,14 +44,15 @@ const SocialHighlightsSection = () => {
                 preloadWhenVisible="metadata"
                 aria-label={`Video: ${item.label}`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 pointer-events-none">
-                <span className="text-white text-sm font-semibold tracking-wide drop-shadow-md">
-                  {item.label}
-                </span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 pointer-events-none">
+                  <span className="text-white text-sm font-semibold tracking-wide drop-shadow-md">
+                    {item.label}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

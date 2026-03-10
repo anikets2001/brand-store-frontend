@@ -29,11 +29,18 @@ const WhatsNewSection = () => {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-start gap-3 min-h-[48px] py-3 px-1 -mx-1 rounded-lg touch-manipulation border-b border-white/10 last:border-0 hover:border-(--primary)/40 hover:bg-white/5 transition-colors"
+                className="group flex items-center gap-3 min-h-[64px] py-3 px-1 -mx-1 rounded-lg touch-manipulation border-b border-white/10 last:border-0 hover:border-(--primary)/40 hover:bg-white/5 transition-colors"
               >
-                <span className="material-icons text-(--primary) text-lg mt-0.5 shrink-0 opacity-80 group-hover:opacity-100" aria-hidden>
-                  arrow_forward
-                </span>
+                {item.thumbnailSrc && (
+                  <div className="relative w-16 h-16 rounded-md overflow-hidden shrink-0 bg-black/20">
+                    <img
+                      src={item.thumbnailSrc}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
                 <span className="heading-premium group-hover:text-[#f9f6ee] text-sm md:text-base leading-snug transition-colors flex-1 min-w-0">
                   {item.title}
                 </span>
