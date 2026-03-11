@@ -35,7 +35,7 @@ const CabinSection = () => {
                     className="w-full h-full object-contain"
                     muted
                     loop
-                    autoPlay={isFirst}
+                    autoPlay
                     controls
                     preloadWhenVisible="metadata"
                     aria-label={item.headline}
