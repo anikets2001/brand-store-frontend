@@ -6,6 +6,7 @@ import { useAirline } from '@/context/AirlineContext';
 import Header from '../Header/Header';
 import HeroBanner from '../HeroBanner/HeroBanner';
 import Footer from '../Footer/Footer';
+import LazySection from '@/components/ui/LazySection';
 import {
   getPassengerDisplay,
   getClassDisplay,
@@ -111,19 +112,29 @@ export default function AirlinePage() {
         onDone={onDone}
       />
 
-      {/* SECTION: Upgraded Fleet and Cabins */}
-      <CabinSection />
+      {/* SECTION: Upgraded Fleet and Cabins - lazy so videos/images load only when scrolled into view */}
+      <LazySection minHeight="200px">
+        <CabinSection />
+      </LazySection>
 
       {/* SECTION: Explore cabins in VR */}
-      <VRLinksSection />
+      <LazySection minHeight="120px">
+        <VRLinksSection />
+      </LazySection>
 
       {/* SECTION: Elevated Journeys */}
-      <ExperienceSection />
+      <LazySection minHeight="200px">
+        <ExperienceSection />
+      </LazySection>
 
       {/* SECTION: India's Only Premium Economy */}
-      <CampaignSection />
+      <LazySection minHeight="200px">
+        <CampaignSection />
+      </LazySection>
 
-      <NetworkProwess />
+      <LazySection minHeight="200px">
+        <NetworkProwess />
+      </LazySection>
 
       {/* <section className="py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-(--background-charcoal) relative">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-linear-to-l from-black/40 to-transparent pointer-events-none" />
@@ -186,10 +197,14 @@ export default function AirlinePage() {
 
 
       {/* SECTION: What's New at Air India */}
-      <WhatsNewSection />
+      <LazySection minHeight="200px">
+        <WhatsNewSection />
+      </LazySection>
 
       {/* SECTION: Social Highlights */}
-      <SocialHighlightsSection />
+      <LazySection minHeight="200px">
+        <SocialHighlightsSection />
+      </LazySection>
 
       {/* <ImageGallery images={config.galleryImages} /> */}
 
