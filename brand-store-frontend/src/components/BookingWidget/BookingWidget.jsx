@@ -5,6 +5,7 @@ import FromDropdown from './subcomponents/FromDropdown';
 import ToDropdown from './subcomponents/ToDropdown';
 import DatesDropdown from './subcomponents/DatesDropdown';
 import PassengersDropdown from './subcomponents/PassengersDropdown';
+import { ArrowRightLeft } from 'lucide-react';
 
 const BookingWidget = ({
   premiumMode,
@@ -78,7 +79,7 @@ const BookingWidget = ({
               onClick={handleSwap}
               className="cursor-pointer w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-(--primary) hover:border-(--primary) transition-all bg-white/5 hover:bg-white/10 transform hover:rotate-180 duration-500"
             >
-              <span className="material-symbols-outlined text-sm">swap_horiz</span>
+              <ArrowRightLeft size={16}/>
             </button>
           </div>
 

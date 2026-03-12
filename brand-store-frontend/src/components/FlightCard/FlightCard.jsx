@@ -1,5 +1,6 @@
 'use client';
 
+import { Plane } from 'lucide-react';
 import Image from 'next/image';
 
 function FlightCard({ img, fromTime, fromCode, toTime, toCode, duration, price, fare }) {
@@ -25,9 +26,7 @@ function FlightCard({ img, fromTime, fromCode, toTime, toCode, duration, price, 
                                 <span className="block text-xl md:text-2xl text-white font-display">{fromTime}</span>
                                 <span className="text-[10px] text-white/40 tracking-widest uppercase">{fromCode}</span>
                             </div>
-                            <span className="material-symbols-outlined text-(--primary) text-lg md:text-xl opacity-80 shrink-0">
-                                flight
-                            </span>
+                            <Plane className='text-(--primary) text-lg md:text-xl opacity-80 shrink-0'/>
                             <div className="text-center">
                                 <span className="block text-xl md:text-2xl text-white font-display">{toTime}</span>
                                 <span className="text-[10px] text-white/40 tracking-widest uppercase">{toCode}</span>
