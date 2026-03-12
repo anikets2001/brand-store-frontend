@@ -3,6 +3,7 @@
 import { useRef, useEffect } from 'react';
 import RowCounter from '../../HeroBanner/subcomponents/RowCounter';
 import ClassOption from '../../HeroBanner/subcomponents/ClassOption';
+import { ChevronDown, ChevronUp, UsersRound } from 'lucide-react';
 
 const PassengersDropdown = ({
   passengers,
@@ -35,7 +36,7 @@ const PassengersDropdown = ({
   }, [isOpen, onClose]);
 
   return (
-    <div className="relative" ref={dropdownRef} style={isOpen ? { zIndex: 99999 } : undefined}>
+    <div className="relative" ref={dropdownRef} style={{ zIndex: 99999 }}>
       <label className="text-[10px] text-(--primary) uppercase font-bold tracking-widest mb-2 block pl-1">
         Passengers
       </label>
@@ -47,19 +48,16 @@ const PassengersDropdown = ({
           onToggle();
         }}
       >
-        <span className="material-symbols-outlined text-white/40 mr-3 group-hover:text-(--primary) transition-colors font-light shrink-0">
-          group
-        </span>
+        <UsersRound className='text-white/40 mr-3 group-hover:text-(--primary) transition-colors font-light shrink-0'/>
         <div className="flex flex-col flex-1 min-w-0">
           <span className="text-white font-display text-lg leading-tight whitespace-nowrap truncate">{passengerDisplay}</span>
           <span className="text-[10px] text-white/40 uppercase tracking-widest whitespace-nowrap truncate">{classDisplay}</span>
         </div>
-        <span
-          className="material-symbols-outlined text-white/40 text-sm transition-transform shrink-0 ml-2"
-          style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
-        >
-          expand_more
-        </span>
+       {isOpen ? (
+          <ChevronUp className="text-white/40 text-sm transition-transform" />
+        ) : (
+          <ChevronDown className="text-white/40 text-sm transition-transform" />
+        )}
       </div>
 
       {isOpen && (

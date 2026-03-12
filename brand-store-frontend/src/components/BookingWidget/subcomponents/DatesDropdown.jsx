@@ -1,5 +1,6 @@
 'use client';
 
+import { ArrowRightLeft, Calendar1, ChevronDown, ChevronUp } from 'lucide-react';
 import { useRef, useEffect } from 'react';
 
 const DatesDropdown = ({
@@ -57,19 +58,16 @@ const DatesDropdown = ({
           onToggle();
         }}
       >
-        <span className="material-symbols-outlined text-white/40 mr-3 group-hover:text-(--primary) transition-colors font-light">
-          calendar_month
-        </span>
+        <Calendar1 className='text-white/40 mr-3 group-hover:text-(--primary) transition-colors font-light'/>
         <div className="flex flex-col flex-1">
           <span className="text-white font-display text-lg leading-tight">{displayText()}</span>
           <span className="text-[10px] text-white/40 uppercase tracking-widest">Round Trip</span>
         </div>
-        <span
-          className="material-symbols-outlined text-white/40 text-sm transition-transform"
-          style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
-        >
-          expand_more
-        </span>
+        {isOpen ? (
+          <ChevronUp className="text-white/40 text-sm transition-transform" />
+        ) : (
+          <ChevronDown className="text-white/40 text-sm transition-transform" />
+        )}
       </div>
 
       {isOpen && (

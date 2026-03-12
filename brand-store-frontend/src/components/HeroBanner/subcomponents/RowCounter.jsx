@@ -1,5 +1,7 @@
 'use client';
 
+import { Plus, X } from "lucide-react";
+
 function RowCounter({ title, subtitle, value, onMinus, onPlus }) {
   return (
     <div className="flex items-center justify-between">
@@ -13,7 +15,7 @@ function RowCounter({ title, subtitle, value, onMinus, onPlus }) {
           className="cursor-pointer w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-[color:var(--primary)] hover:text-[color:var(--primary)] transition-all"
           type="button"
         >
-          <span className="material-symbols-outlined text-sm">remove</span>
+          <X size={16}/>
         </button>
         <span className="text-white font-display text-lg w-8 text-center">{value}</span>
         <button
@@ -21,7 +23,7 @@ function RowCounter({ title, subtitle, value, onMinus, onPlus }) {
           className="cursor-pointer w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-[color:var(--primary)] hover:text-[color:var(--primary)] transition-all"
           type="button"
         >
-          <span className="material-symbols-outlined text-sm">add</span>
+          <Plus size={16} />
         </button>
       </div>
     </div>
