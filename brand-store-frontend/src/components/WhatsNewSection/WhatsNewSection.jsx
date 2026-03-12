@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useAirline } from '@/context/AirlineContext';
 
 const WhatsNewSection = () => {
@@ -33,11 +34,12 @@ const WhatsNewSection = () => {
               >
                 {item.thumbnailSrc && (
                   <div className="relative w-16 h-16 rounded-md overflow-hidden shrink-0 bg-black/20">
-                    <img
+                    <Image
                       src={item.thumbnailSrc}
                       alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
-                      loading="lazy"
+                      fill
+                      className="object-cover transition-transform duration-200 group-hover:scale-105"
+                      sizes="64px"
                     />
                   </div>
                 )}

@@ -34,10 +34,12 @@ export default function LazyVideo({
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsInView(true);
+          } else {
+            setIsInView(false);
           }
         });
       },
-      { rootMargin: '100px', threshold: 0.1 }
+      { rootMargin: '150px', threshold: 0.05 }
     );
 
     observer.observe(el);
@@ -50,11 +52,22 @@ export default function LazyVideo({
     }
   }, [isInView, hasLoaded]);
 
+  // Pause video when scrolled out of view to free main thread and reduce decoding
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !hasLoaded) return;
+    if (isInView) {
+      if (autoPlay) video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [isInView, hasLoaded, autoPlay]);
+
   return (
     <div ref={containerRef} className="relative w-full h-full">
       <video
         ref={videoRef}
-        src={isInView ? src : undefined}
+        src={isInView || hasLoaded ? src : undefined}
         className={className}
         muted={muted}
         loop={loop}
