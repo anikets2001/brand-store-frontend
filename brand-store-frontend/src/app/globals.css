@@ -13,17 +13,27 @@
   /* Rose pink & cream */
   --airindia-rose-pink: #f8c1b4;
   --airindia-cream: #f9f6ee;
+  /* Beige – mellow, warm neutrals to balance red/purple */
+  --airindia-beige: #e8dfd4;
+  --airindia-beige-light: #f2ebe3;
+  --airindia-beige-warm: #ddd4c8;
+  --airindia-beige-dark: #c9bfb2;
   /* Gold scale */
   --airindia-gold-light: #fed9a0;
   --airindia-gold-mid: #ebbe69;
   --airindia-gold-dark: #9e7947;
-  /* Section backgrounds – alternate Air India hex colours */
+  /* Section backgrounds */
   --background-dark: #531251;
   --background-charcoal: #b61032;
   --background-red: #da0e29;
   --background-gold-dark: #9e7947;
   --navy-deep: #b61032;
   --text-main-dark: #f9f6ee;
+  /* Text on beige sections */
+  --text-on-beige: #3d3630;
+  --text-on-beige-muted: #5c534a;
+  /* Jaali pattern (relative to public when served at root; adjust if using basePath) */
+  --jaali-pattern-url: url('/assets/air-india/images/aircraft-images/jaali-pattern.png');
 }
 
 html {
@@ -32,7 +42,7 @@ html {
 
 body {
   font-family: Lato, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: linear-gradient(165deg, #531251 0%, rgba(83,18,81,0.98) 28%, rgba(182,16,50,0.96) 55%, #b61032 85%, #b61032 100%);
+  background: linear-gradient(165deg, var(--airindia-beige-light) 0%, var(--airindia-beige) 25%, var(--airindia-beige-warm) 50%, rgba(182,16,50,0.12) 80%, rgba(83,18,81,0.08) 100%);
   background-attachment: fixed;
   color: var(--text-main-dark);
   overflow-x: hidden;
@@ -55,6 +65,40 @@ body {
 .bg-premium-blend {
   background: linear-gradient(175deg, #531251 0%, rgba(83,18,81,0.6) 50%, #b61032 100%);
 }
+
+/* Beige + jaali – mellow sections with pattern */
+.bg-beige-jaali {
+  background-color: var(--airindia-beige-light);
+  background-image: var(--jaali-pattern-url);
+  background-repeat: repeat;
+  background-size: 280px auto;
+  background-blend-mode: overlay;
+  color: var(--text-on-beige);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+.bg-beige-jaali .heading-premium,
+.bg-beige-jaali .heading-beige {
+  color: var(--text-on-beige);
+  text-shadow: none;
+}
+.bg-beige-jaali .subtext-premium,
+.bg-beige-jaali .subtext-beige {
+  color: var(--text-on-beige-muted);
+  text-shadow: none;
+}
+.bg-beige-jaali .section-divider {
+  border-top-color: rgba(61, 54, 48, 0.08);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+.bg-beige-jaali .premium-card {
+  border-color: rgba(61, 54, 48, 0.08);
+  box-shadow: 0 2px 16px rgba(61, 54, 48, 0.06), 0 0 0 1px rgba(61, 54, 48, 0.06);
+}
+.bg-beige-jaali .premium-card:hover {
+  border-color: rgba(235, 190, 105, 0.35);
+  box-shadow: 0 8px 32px rgba(61, 54, 48, 0.1), 0 0 0 1px rgba(235, 190, 105, 0.2);
+}
+
 .section-divider {
   border-top: 1px solid rgba(235, 190, 105, 0.12);
   box-shadow: 0 1px 0 rgba(249, 246, 238, 0.06), inset 0 1px 0 rgba(0, 0, 0, 0.08);
@@ -111,7 +155,7 @@ body {
   scrollbar-width: none;
 }
 
-/* Brand-colour dark panel for widgets/dropdowns (premium glass) */
+/* Brand panel – mellow beige with jaali hint (widgets/dropdowns) */
 .airindia-panel {
   background: linear-gradient(160deg, rgba(83, 18, 81, 0.92) 0%, rgba(182, 16, 50, 0.88) 100%);
   backdrop-filter: blur(20px);

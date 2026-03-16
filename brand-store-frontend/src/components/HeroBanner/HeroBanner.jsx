@@ -26,7 +26,7 @@ const HeroBanner = ({
   return (
     <header
       className="relative overflow-hidden min-h-screen flex flex-col justify-center premium-theme"
-      style={{ background: "#b61032" }}
+      style={{ background: 'var(--airindia-beige-warm)' }}
       id="mainHeader"
     >
       <div
@@ -38,7 +38,7 @@ const HeroBanner = ({
             alt={headerAlt}
             src={headerImg}
             fill
-            className="object-cover scale-105 float-slow transition-opacity duration-1000"
+            className="object-cover transition-opacity duration-1000"
             sizes="(max-width: 768px) 100vw, 100vw"
             priority
             fetchPriority="high"
@@ -46,10 +46,6 @@ const HeroBanner = ({
           />
         </div>
       </div>
-
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#531251]/50 via-[#b61032]/30 to-[#531251]/40 mix-blend-multiply" />
-      <div className="absolute inset-0 z-0 bg-gradient-to-t from-[#531251]/70 via-transparent to-[#b61032]/30" />
-      <div className="absolute top-1/4 right-0 w-200 h-200 rounded-full blur-[120px] mix-blend-overlay animate-pulse opacity-40" style={{ background: '#ebbe69' }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full relative z-10 pt-6 sm:pt-10 pb-12 sm:pb-20">
         {/* HERO */}

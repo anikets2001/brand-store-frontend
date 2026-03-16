@@ -18,7 +18,7 @@ const NetworkProwess = () => {
   const tiles = activeTab === TAB_DOMESTIC ? domesticTiles : internationalTiles;
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-premium-darkred section-divider relative overflow-hidden">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-beige-jaali section-divider relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[color:var(--primary)]/25 to-transparent" />
       <div className="max-w-7xl mx-auto">
         <div className="mb-10 md:mb-16">
@@ -31,14 +31,14 @@ const NetworkProwess = () => {
         </div>
 
         {/* Tabs – International first */}
-        <div className="flex gap-1 p-1 rounded-lg bg-white/5 border border-white/10 w-fit mb-8">
+        <div className="flex gap-1 p-1 rounded-lg bg-black/5 border border-[rgba(61,54,48,0.12)] w-fit mb-8">
           <button
             type="button"
             onClick={() => setActiveTab(TAB_INTERNATIONAL)}
             className={`cursor-pointer px-5 py-2.5 rounded-md text-sm font-bold uppercase tracking-[0.15em] transition-colors min-h-[44px] touch-manipulation ${
               activeTab === TAB_INTERNATIONAL
                 ? 'bg-(--primary) text-black'
-                : 'text-white/70 hover:text-white hover:bg-white/10'
+                : 'text-[var(--text-on-beige-muted)] hover:text-[var(--text-on-beige)] hover:bg-black/10'
             }`}
             aria-pressed={activeTab === TAB_INTERNATIONAL}
             aria-label={`Show ${internationalTitle || 'International'} destinations`}
@@ -51,7 +51,7 @@ const NetworkProwess = () => {
             className={`cursor-pointer px-5 py-2.5 rounded-md text-sm font-bold uppercase tracking-[0.15em] transition-colors min-h-[44px] touch-manipulation ${
               activeTab === TAB_DOMESTIC
                 ? 'bg-(--primary) text-black'
-                : 'text-white/70 hover:text-white hover:bg-white/10'
+                : 'text-[var(--text-on-beige-muted)] hover:text-[var(--text-on-beige)] hover:bg-black/10'
             }`}
             aria-pressed={activeTab === TAB_DOMESTIC}
             aria-label={`Show ${domesticTitle || 'Domestic'} destinations`}

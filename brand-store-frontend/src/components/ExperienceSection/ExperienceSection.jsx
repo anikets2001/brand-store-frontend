@@ -10,7 +10,7 @@ const ExperienceSection = () => {
   if (!items?.length) return null;
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-premium-purple section-divider">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-beige-jaali section-divider">
       <div className="max-w-7xl mx-auto">
         <div className="mb-10 md:mb-16">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl heading-premium leading-tight">
@@ -44,18 +44,18 @@ const ExperienceSection = () => {
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
                   <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 className="font-display text-lg md:text-xl heading-premium">
+                    <h3 className="font-display text-lg md:text-xl text-white drop-shadow-md">
                       {item.title}
                     </h3>
                   </div>
                 </div>
 
                 <div className="p-4 md:p-5">
-                  <p className="heading-premium text-sm font-medium leading-snug">
+                  <p className="text-white text-sm font-medium leading-snug">
                     {item.line1}
                   </p>
                   {item.line2 && (
-                    <p className="subtext-premium text-sm mt-1 leading-snug">
+                    <p className="text-white/90 text-sm mt-1 leading-snug">
                       {item.line2}
                     </p>
                   )}
