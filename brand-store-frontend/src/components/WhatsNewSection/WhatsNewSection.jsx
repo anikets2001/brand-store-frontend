@@ -12,7 +12,7 @@ const WhatsNewSection = () => {
   const { sectionTitle, items } = whatsNew;
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-premium-purple section-divider">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-beige-jaali section-divider">
       <div className="max-w-4xl mx-auto">
         <div className="mb-8 md:mb-12">
           <span className="text-xs font-bold tracking-[0.25em] sm:tracking-[0.3em] text-(--primary) uppercase block mb-2 md:mb-3">
@@ -30,7 +30,7 @@ const WhatsNewSection = () => {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-3 min-h-[64px] py-3 px-1 -mx-1 rounded-lg touch-manipulation border-b border-white/10 last:border-0 hover:border-(--primary)/40 hover:bg-white/5 transition-colors"
+                className="group flex items-center gap-3 min-h-[64px] py-3 px-1 -mx-1 rounded-lg touch-manipulation border-b border-[rgba(61,54,48,0.12)] last:border-0 hover:border-(--primary)/40 hover:bg-black/5 transition-colors"
               >
                 {item.thumbnailSrc && (
                   <div className="relative w-16 h-16 rounded-md overflow-hidden shrink-0 bg-black/20">
@@ -43,10 +43,10 @@ const WhatsNewSection = () => {
                     />
                   </div>
                 )}
-                <span className="heading-premium group-hover:text-[#f9f6ee] text-sm md:text-base leading-snug transition-colors flex-1 min-w-0">
+                <span className="heading-premium group-hover:text-[var(--text-on-beige)] text-sm md:text-base leading-snug transition-colors flex-1 min-w-0">
                   {item.title}
                 </span>
-                <span className="material-icons text-white/40 text-sm shrink-0 group-hover:text-(--primary)" aria-hidden>
+                <span className="material-icons text-[var(--text-on-beige-muted)] text-sm shrink-0 group-hover:text-(--primary)" aria-hidden>
                   open_in_new
                 </span>
               </a>

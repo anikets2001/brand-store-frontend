@@ -10,7 +10,7 @@ const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '/brand-store';
 /** Build full asset URL and encode spaces/special chars so images load correctly */
 
 // Cover & logo (1- Aircraft Image_Logo_Background)
-const heroCoverImage = `/assets/air-india/images/aircraft-images/Reference.jpg`;
+const heroCoverImage = `/assets/air-india/images/aircraft-images/hero.jpg`;
 const imgWiFi = `/assets/air-india/images/experience/in-flight-wifi.jpg`;
 const imgSignatureAmenities = `/assets/air-india/images/experience/business-class-coupe.jpg`;
 const imgGourmetDining = `/assets/air-india/images/experience/business.jpg`;
@@ -32,6 +32,8 @@ const config = {
 
   assets: {
     vrBasePath: `/assets/air-india/air-india-vr/VR`,
+    /** Jaali pattern for beige sections and hero (used in CSS and hero strip) */
+    jaaliPatternUrl: '/assets/air-india/images/aircraft-images/jaali-pattern.png',
   },
 
   /** VR WebGL cabin experiences; path is relative to assets.vrBasePath, ending at WebGL folder that contains index.html */
