@@ -32,8 +32,6 @@
   /* Text on beige sections */
   --text-on-beige: #3d3630;
   --text-on-beige-muted: #5c534a;
-  /* Jaali pattern (relative to public when served at root; adjust if using basePath) */
-  --jaali-pattern-url: url('/assets/air-india/images/aircraft-images/jaali-pattern.png');
 }
 
 html {
@@ -66,42 +64,53 @@ body {
   background: linear-gradient(175deg, #531251 0%, rgba(83,18,81,0.6) 50%, #b61032 100%);
 }
 
-/* Beige + jaali – mellow sections with pattern */
+/* Beige sections: jaali pattern clearly visible with one light tint */
+/* Tiles overlap slightly (size > logical tile) to remove black borders between repeats */
+.bg-jaali,
 .bg-beige-jaali {
+  --jaali-tint: rgba(242, 235, 227, 0.28);
   background-color: var(--airindia-beige-light);
-  background-image: var(--jaali-pattern-url);
-  background-repeat: repeat;
-  background-size: 280px auto;
-  background-blend-mode: overlay;
+  background-image: url('/assets/air-india/images/aircraft-images/jaali.png');
+  background-repeat: repeat, repeat;
+  /* Slightly smaller tile size so tiles overlap and hide black borders between repeats */
+  background-size: 100% 100%, 276px auto;
+  background-position: -1 2, 0 0;
   color: var(--text-on-beige);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  position: relative;
 }
+.bg-jaali {
+  --jaali-tint: rgba(232, 223, 212, 0.22);
+  background-size: 100% 100%, 256px auto;
+}
+.bg-beige-jaali {
+  --jaali-tint: rgba(242, 235, 227, 0.32);
+  background-size: 100% 100%, 296px auto;
+}
+
+/* Text on jali: dark for readability (overrides heading/subtext-premium) */
+.bg-jaali .heading-premium,
+.bg-jaali .heading-beige,
 .bg-beige-jaali .heading-premium,
 .bg-beige-jaali .heading-beige {
   color: var(--text-on-beige);
   text-shadow: none;
 }
+.bg-jaali .subtext-premium,
+.bg-jaali .subtext-beige,
 .bg-beige-jaali .subtext-premium,
 .bg-beige-jaali .subtext-beige {
   color: var(--text-on-beige-muted);
   text-shadow: none;
 }
-.bg-beige-jaali .section-divider {
-  border-top-color: rgba(61, 54, 48, 0.08);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(0, 0, 0, 0.04);
-}
+.bg-jaali .premium-card,
 .bg-beige-jaali .premium-card {
-  border-color: rgba(61, 54, 48, 0.08);
-  box-shadow: 0 2px 16px rgba(61, 54, 48, 0.06), 0 0 0 1px rgba(61, 54, 48, 0.06);
+  border-color: rgba(61, 54, 48, 0.12);
+  box-shadow: 0 2px 16px rgba(61, 54, 48, 0.08), 0 0 0 1px rgba(61, 54, 48, 0.08);
 }
+.bg-jaali .premium-card:hover,
 .bg-beige-jaali .premium-card:hover {
-  border-color: rgba(235, 190, 105, 0.35);
-  box-shadow: 0 8px 32px rgba(61, 54, 48, 0.1), 0 0 0 1px rgba(235, 190, 105, 0.2);
-}
-
-.section-divider {
-  border-top: 1px solid rgba(235, 190, 105, 0.12);
-  box-shadow: 0 1px 0 rgba(249, 246, 238, 0.06), inset 0 1px 0 rgba(0, 0, 0, 0.08);
+  border-color: rgba(235, 190, 105, 0.4);
+  box-shadow: 0 8px 32px rgba(61, 54, 48, 0.12), 0 0 0 1px rgba(235, 190, 105, 0.25);
 }
 .premium-card {
   border: 1px solid rgba(249, 246, 238, 0.06);

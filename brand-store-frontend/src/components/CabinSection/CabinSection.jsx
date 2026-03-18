@@ -10,10 +10,10 @@ const CabinSection = () => {
   if (!videos?.length) return null;
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-beige-jaali section-divider">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-jaali">
       <div className="max-w-7xl mx-auto">
         <div className="mb-10 md:mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl heading-premium leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-stone-800 leading-tight">
             Upgraded Fleet and Cabins
           </h2>
         </div>
@@ -43,10 +43,10 @@ const CabinSection = () => {
                   <div className="absolute inset-0 bg-black/20 pointer-events-none" />
                 </div>
                 <div className={swapOrder ? 'md:order-1' : 'md:order-2'}>
-                  <h3 className="font-display text-2xl md:text-3xl heading-premium mb-4">
+                  <h3 className="font-display text-2xl md:text-3xl text-stone-800 mb-4">
                     {item.headline}
                   </h3>
-                  <p className="subtext-premium text-sm md:text-base leading-relaxed">
+                  <p className="text-stone-700 text-sm md:text-base leading-relaxed">
                     {item.body}
                   </p>
                 </div>

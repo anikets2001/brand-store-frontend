@@ -5,7 +5,7 @@ import CityBadge from './subcomponents/CityBadge';
 const CitiesSection = ({ cities = defaultCities }) => {
   if (!cities?.length) return null;
   return (
-    <section className="py-20 bg-[#531251] section-divider">
+    <section className="py-20 bg-[#531251]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center mb-16">
           <div className="h-px w-20 bg-[#f9f6ee]/15" />

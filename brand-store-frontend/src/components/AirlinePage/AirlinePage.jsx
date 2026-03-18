@@ -201,6 +201,9 @@ export default function AirlinePage() {
         <WhatsNewSection />
       </LazySection>
 
+      {/* Jali pattern strip – fills gap between What's New and Social Highlights */}
+      {/* <div className="min-h-[32px] bg-beige-jaali" aria-hidden="true" /> */}
+
       {/* SECTION: Social Highlights */}
       <LazySection minHeight="200px">
         <SocialHighlightsSection />
