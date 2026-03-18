@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useAirline } from '@/context/AirlineContext';
+import Link from 'next/link';
 
 const WhatsNewSection = () => {
   const airline = useAirline();
@@ -12,13 +13,13 @@ const WhatsNewSection = () => {
   const { sectionTitle, items } = whatsNew;
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-beige-jaali section-divider">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-beige-jaali">
       <div className="max-w-4xl mx-auto">
         <div className="mb-8 md:mb-12">
           <span className="text-xs font-bold tracking-[0.25em] sm:tracking-[0.3em] text-(--primary) uppercase block mb-2 md:mb-3">
             News & Updates
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl heading-premium">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-stone-800">
             {sectionTitle || "What's New"}
           </h2>
         </div>
@@ -26,7 +27,7 @@ const WhatsNewSection = () => {
         <ul className="space-y-0">
           {items.map((item, index) => (
             <li key={index}>
-              <a
+              <Link
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -38,18 +39,19 @@ const WhatsNewSection = () => {
                       src={item.thumbnailSrc}
                       alt={item.title}
                       fill
-                      className="object-cover transition-transform duration-200 group-hover:scale-105"
+                      className="transition-transform duration-200 group-hover:scale-105"
                       sizes="64px"
+                      unoptimized
                     />
                   </div>
                 )}
-                <span className="heading-premium group-hover:text-[var(--text-on-beige)] text-sm md:text-base leading-snug transition-colors flex-1 min-w-0">
+                <span className="text-stone-700 group-hover:text-stone-900 text-sm md:text-base leading-snug transition-colors flex-1 min-w-0">
                   {item.title}
                 </span>
-                <span className="material-icons text-[var(--text-on-beige-muted)] text-sm shrink-0 group-hover:text-(--primary)" aria-hidden>
+                <span className="material-icons text-stone-600 text-sm shrink-0 group-hover:text-(--primary)" aria-hidden>
                   open_in_new
                 </span>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

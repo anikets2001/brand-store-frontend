@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useAirline } from '@/context/AirlineContext';
+import Image from "next/image";
+import { useAirline } from "@/context/AirlineContext";
 
 const ExperienceSection = () => {
   const airline = useAirline();
@@ -10,10 +10,10 @@ const ExperienceSection = () => {
   if (!items?.length) return null;
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-beige-jaali section-divider">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-jaali">
       <div className="max-w-7xl mx-auto">
         <div className="mb-10 md:mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl heading-premium leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-stone-800 leading-tight">
             Elevated Journeys
           </h2>
         </div>
@@ -38,7 +38,7 @@ const ExperienceSection = () => {
                     src={item.imageSrc}
                     alt={item.alt || item.title}
                     fill
-                    className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    className="object-cover group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (min-width: 1024px) 33vw"
                     fetchPriority="low"
                   />
@@ -51,13 +51,33 @@ const ExperienceSection = () => {
                 </div>
 
                 <div className="p-4 md:p-5">
-                  <p className="text-white text-sm font-medium leading-snug">
-                    {item.line1}
-                  </p>
-                  {item.line2 && (
-                    <p className="text-white/90 text-sm mt-1 leading-snug">
-                      {item.line2}
+                  <div className="flex items-center gap-4">
+                    <Image
+                      src={
+                        "/assets/air-india/images/aircraft-images/bullet.png"
+                      }
+                      alt="Bullet point"
+                      width={20}
+                      height={20}
+                    />
+                    <p className="text-white text-sm font-medium leading-snug">
+                      {item.line1}
                     </p>
+                  </div>
+                  {item.line2 && (
+                    <div className="flex items-center gap-4 mt-4">
+                      <Image
+                        src={
+                          "/assets/air-india/images/aircraft-images/bullet.png"
+                        }
+                        alt="Bullet point"
+                        width={20}
+                        height={20}
+                      />
+                      <p className="text-white text-sm font-medium leading-snug">
+                        {item.line2}
+                      </p>
+                    </div>
                   )}
                 </div>
               </div>

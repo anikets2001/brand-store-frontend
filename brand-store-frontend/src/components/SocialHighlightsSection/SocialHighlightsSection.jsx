@@ -10,7 +10,7 @@ const SocialHighlightsSection = () => {
   if (!items?.length) return null;
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-premium-darkred section-divider relative overflow-hidden">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-premium-darkred relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[color:var(--primary)]/25 to-transparent" />
       <div className="max-w-7xl mx-auto">
         <div className="mb-10 md:mb-14">
@@ -18,7 +18,7 @@ const SocialHighlightsSection = () => {
             Social Highlights
           </h2>
           <p className="subtext-premium text-sm md:text-base max-w-xl">
-            Glimpses from the places we fly. Tap to play and explore.
+            Glimpses from top destinations.
           </p>
         </div>
 

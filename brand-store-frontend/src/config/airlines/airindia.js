@@ -10,7 +10,7 @@ const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '/brand-store';
 /** Build full asset URL and encode spaces/special chars so images load correctly */
 
 // Cover & logo (1- Aircraft Image_Logo_Background)
-const heroCoverImage = `/assets/air-india/images/aircraft-images/hero.jpg`;
+const heroCoverImage = `/assets/air-india/images/aircraft-images/hero-banner.jpg`;
 const imgWiFi = `/assets/air-india/images/experience/in-flight-wifi.jpg`;
 const imgSignatureAmenities = `/assets/air-india/images/experience/business-class-coupe.jpg`;
 const imgGourmetDining = `/assets/air-india/images/experience/business.jpg`;
@@ -24,7 +24,7 @@ const config = {
   brand: {
     name: 'Air India',
     displayName: 'Air India',
-    logoUrl: `/assets/air-india/images/aircraft-images/AI logo.png`,
+    logoUrl: `/assets/air-india/images/aircraft-images/AI-logo.png`,
     bookCtaText: 'Book Now With Air India',
     partnerLogoUrl: `/assets/air-india/images/yatra-logo.png`,
     partnerLogoAlt: 'Yatra – booking partner',
@@ -33,15 +33,15 @@ const config = {
   assets: {
     vrBasePath: `/assets/air-india/air-india-vr/VR`,
     /** Jaali pattern for beige sections and hero (used in CSS and hero strip) */
-    jaaliPatternUrl: '/assets/air-india/images/aircraft-images/jaali-pattern.png',
+    jaaliPatternUrl: '/assets/air-india/images/aircraft-images/jali.png',
   },
 
   /** VR WebGL cabin experiences; path is relative to assets.vrBasePath, ending at WebGL folder that contains index.html */
   vrExperiences: [
     { id: 'all-cabins', label: 'Explore All Cabins (VR)', path: 'Builds/All Cabins Build/WebGL' },
     { id: 'business', label: 'Business cabin (VR)', path: 'Builds/Individual Builds/Business/WebGL' },
-    { id: 'economy', label: 'Economy cabin (VR)', path: 'Builds/Individual Builds/Economy/WebGL' },
     { id: 'premium-economy', label: 'Premium Economy cabin (VR)', path: 'Builds/Individual Builds/PremiumEconomy/WebGL' },
+    { id: 'economy', label: 'Economy cabin (VR)', path: 'Builds/Individual Builds/Economy/WebGL' },
   ],
 
   hero: {
@@ -53,7 +53,7 @@ const config = {
     firstTitleHtml: 'The New Air India <br/><span class="text-gold-gradient italic pr-2 font-light">Experience</span>',
     firstSubtitle: 'Exclusively First',
     businessImage: imgSignatureAmenities,
-    firstImage: imgSignatureAmenities,
+    premiumEconomyImage: imgEntertainment,
     economyImage: heroCoverImage,
   },
 

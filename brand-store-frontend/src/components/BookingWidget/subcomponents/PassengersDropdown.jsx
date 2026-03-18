@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useRef, useEffect } from 'react';
-import RowCounter from '../../HeroBanner/subcomponents/RowCounter';
-import ClassOption from '../../HeroBanner/subcomponents/ClassOption';
-import { ChevronDown, ChevronUp, UsersRound } from 'lucide-react';
+import { useRef, useEffect } from "react";
+import RowCounter from "../../HeroBanner/subcomponents/RowCounter";
+import ClassOption from "../../HeroBanner/subcomponents/ClassOption";
+import { ChevronDown, ChevronUp, UsersRound } from "lucide-react";
 
 const PassengersDropdown = ({
   passengers,
@@ -27,11 +27,11 @@ const PassengersDropdown = ({
     }
 
     if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen, onClose]);
 
@@ -48,12 +48,16 @@ const PassengersDropdown = ({
           onToggle();
         }}
       >
-        <UsersRound className='text-white/40 mr-3 group-hover:text-(--primary) transition-colors font-light shrink-0'/>
+        <UsersRound className="text-white/40 mr-3 group-hover:text-(--primary) transition-colors font-light shrink-0" />
         <div className="flex flex-col flex-1 min-w-0">
-          <span className="text-white font-display text-lg leading-tight whitespace-nowrap truncate">{passengerDisplay}</span>
-          <span className="text-[10px] text-white/40 uppercase tracking-widest whitespace-nowrap truncate">{classDisplay}</span>
+          <span className="text-white font-display text-lg leading-tight whitespace-nowrap truncate">
+            {passengerDisplay}
+          </span>
+          <span className="text-[10px] text-white/40 uppercase tracking-widest whitespace-nowrap truncate">
+            {classDisplay}
+          </span>
         </div>
-       {isOpen ? (
+        {isOpen ? (
           <ChevronUp className="text-white/40 text-sm transition-transform" />
         ) : (
           <ChevronDown className="text-white/40 text-sm transition-transform" />
@@ -63,7 +67,7 @@ const PassengersDropdown = ({
       {isOpen && (
         <div
           className="absolute w-full md:w-100 airindia-panel border border-(--primary)/20 rounded-lg overflow-hidden z-50"
-          style={{ top: '100%', left: 0, marginTop: 8, zIndex: 99999 }}
+          style={{ top: "100%", left: 0, marginTop: 8, zIndex: 99999 }}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="p-6 space-y-6">
@@ -78,25 +82,25 @@ const PassengersDropdown = ({
                   title="Adults"
                   subtitle="12+ years"
                   value={passengers.adults}
-                  onMinus={() => updatePassengers('adults', -1)}
-                  onPlus={() => updatePassengers('adults', 1)}
+                  onMinus={() => updatePassengers("adults", -1)}
+                  onPlus={() => updatePassengers("adults", 1)}
                 />
 
-                  <RowCounter
-                    title="Children"
-                    subtitle="2-11 years"
-                    value={passengers.children}
-                    onMinus={() => updatePassengers('children', -1)}
-                    onPlus={() => updatePassengers('children', 1)}
-                  />
+                <RowCounter
+                  title="Children"
+                  subtitle="2-11 years"
+                  value={passengers.children}
+                  onMinus={() => updatePassengers("children", -1)}
+                  onPlus={() => updatePassengers("children", 1)}
+                />
 
-                  <RowCounter
-                    title="Infants"
-                    subtitle="Under 2 years"
-                    value={passengers.infants}
-                    onMinus={() => updatePassengers('infants', -1)}
-                    onPlus={() => updatePassengers('infants', 1)}
-                  />
+                <RowCounter
+                  title="Infants"
+                  subtitle="Under 2 years"
+                  value={passengers.infants}
+                  onMinus={() => updatePassengers("infants", -1)}
+                  onPlus={() => updatePassengers("infants", 1)}
+                />
               </div>
             </div>
 
@@ -108,22 +112,22 @@ const PassengersDropdown = ({
 
               <div className="grid grid-cols-3 gap-3">
                 <ClassOption
-                  active={selectedClass === 'economy'}
-                  icon="airline_seat_recline_normal"
-                  label="Economy"
-                  onClick={() => setSelectedClass('economy')}
-                />
-                <ClassOption
-                  active={selectedClass === 'business'}
+                  active={selectedClass === "business"}
                   icon="airline_seat_flat"
                   label="Business"
-                  onClick={() => setSelectedClass('business')}
+                  onClick={() => setSelectedClass("business")}
                 />
                 <ClassOption
-                  active={selectedClass === 'first'}
-                  icon="airline_seat_individual_suite"
-                  label="First"
-                  onClick={() => setSelectedClass('first')}
+                  active={selectedClass === "premiumEconomy"}
+                  icon="airline_seat_recline_extra"
+                  label="Premium Economy"
+                  onClick={() => setSelectedClass("premiumEconomy")}
+                />
+                <ClassOption
+                  active={selectedClass === "economy"}
+                  icon="airline_seat_recline_normal"
+                  label="Economy"
+                  onClick={() => setSelectedClass("economy")}
                 />
               </div>
             </div>

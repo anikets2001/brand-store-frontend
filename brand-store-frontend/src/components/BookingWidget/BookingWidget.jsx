@@ -33,7 +33,7 @@ const BookingWidget = ({
     setToAirport(temp);
   };
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto mt-[280px]">
       <div
         className={[
           'airindia-panel rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-10 border border-white/[0.06] shadow-[0_1px_0_rgba(249,246,238,0.04),0_20px_50px_rgba(83,18,81,0.4)] relative overflow-visible group mt-4 z-40',

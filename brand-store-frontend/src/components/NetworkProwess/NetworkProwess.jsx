@@ -18,14 +18,14 @@ const NetworkProwess = () => {
   const tiles = activeTab === TAB_DOMESTIC ? domesticTiles : internationalTiles;
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-beige-jaali section-divider relative overflow-hidden">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-beige-jaali relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[color:var(--primary)]/25 to-transparent" />
       <div className="max-w-7xl mx-auto">
         <div className="mb-10 md:mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl heading-premium mb-2 md:mb-3">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-stone-800 mb-2 md:mb-3">
             {headline}
           </h2>
-          <p className="subtext-premium text-sm md:text-base">
+          <p className="text-stone-700 text-sm md:text-base">
             {subline}
           </p>
         </div>
@@ -38,7 +38,7 @@ const NetworkProwess = () => {
             className={`cursor-pointer px-5 py-2.5 rounded-md text-sm font-bold uppercase tracking-[0.15em] transition-colors min-h-[44px] touch-manipulation ${
               activeTab === TAB_INTERNATIONAL
                 ? 'bg-(--primary) text-black'
-                : 'text-[var(--text-on-beige-muted)] hover:text-[var(--text-on-beige)] hover:bg-black/10'
+                : 'text-stone-600 hover:text-stone-800 hover:bg-black/10'
             }`}
             aria-pressed={activeTab === TAB_INTERNATIONAL}
             aria-label={`Show ${internationalTitle || 'International'} destinations`}
@@ -51,11 +51,11 @@ const NetworkProwess = () => {
             className={`cursor-pointer px-5 py-2.5 rounded-md text-sm font-bold uppercase tracking-[0.15em] transition-colors min-h-[44px] touch-manipulation ${
               activeTab === TAB_DOMESTIC
                 ? 'bg-(--primary) text-black'
-                : 'text-[var(--text-on-beige-muted)] hover:text-[var(--text-on-beige)] hover:bg-black/10'
+                : 'text-stone-600 hover:text-stone-800 hover:bg-black/10'
             }`}
             aria-pressed={activeTab === TAB_DOMESTIC}
             aria-label={`Show ${domesticTitle || 'Domestic'} destinations`}
-          >
+            >
             {domesticTitle || 'Domestic'}
           </button>
         </div>
@@ -71,8 +71,7 @@ const NetworkProwess = () => {
                 src={tile.img}
                 alt={tile.country ? `${tile.city}, ${tile.country}` : `Destination: ${tile.city}`}
                 fill
-                className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
+                className="group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                 fetchPriority="low"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent" />
