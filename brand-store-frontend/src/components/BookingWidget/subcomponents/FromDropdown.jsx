@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { airports } from "../config";
-import { Check, ChevronDown, ChevronUp, PlaneTakeoff } from "lucide-react";
+import { Check, ChevronDown, ChevronUp, PlaneTakeoff, Search } from "lucide-react";
 
 const FromDropdown = ({
   selectedAirport,
@@ -12,6 +12,7 @@ const FromDropdown = ({
   onClose,
 }) => {
   const dropdownRef = useRef(null);
+  const [citySearch, setCitySearch] = useState("");
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -28,6 +29,10 @@ const FromDropdown = ({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen, onClose]);
+
+  useEffect(() => {
+    if (!isOpen) setCitySearch("");
+  }, [isOpen]);
 
   const displayAirport = selectedAirport || { code: "", city: "Select Origin" };
 
@@ -65,6 +70,29 @@ const FromDropdown = ({
           style={{ top: "100%", left: 0, marginTop: 8 }}
           onClick={(e) => e.stopPropagation()}
         >
+          <div className="border-b border-white/10 p-3">
+            <label htmlFor="from-city-search" className="sr-only">
+              Search cities
+            </label>
+            <div className="relative flex items-center">
+              <Search
+                className="pointer-events-none absolute left-3 h-4 w-4 text-white/35"
+                strokeWidth={2}
+                aria-hidden
+              />
+              <input
+                id="from-city-search"
+                type="search"
+                value={citySearch}
+                onChange={(e) => setCitySearch(e.target.value)}
+                placeholder="Search cities…"
+                autoComplete="off"
+                className="w-full rounded-md border border-white/10 bg-white/5 py-2.5 pl-9 pr-3 text-sm text-white placeholder:text-white/35 outline-none transition-colors focus:border-(--primary)/50 focus:ring-1 focus:ring-(--primary)/30"
+                onClick={(e) => e.stopPropagation()}
+                onKeyDown={(e) => e.stopPropagation()}
+              />
+            </div>
+          </div>
           <div className="max-h-64 overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/10 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-(--primary)/40 [&::-webkit-scrollbar-thumb]:transition-colors">
             {airports.map((airport) => (
               <div
