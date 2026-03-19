@@ -1,7 +1,8 @@
 'use client';
 
-import { ArrowRightLeft, Calendar1, ChevronDown, ChevronUp } from 'lucide-react';
+import { Calendar1, ChevronDown, ChevronUp } from 'lucide-react';
 import { useRef, useEffect } from 'react';
+import BookingCalendar, { parseISODateLocal } from './BookingCalendar';
 
 const DatesDropdown = ({
   departureDate,
@@ -32,19 +33,38 @@ const DatesDropdown = ({
 
   const formatDate = (dateString) => {
     if (!dateString) return '';
-    const date = new Date(dateString);
+    const date = parseISODateLocal(dateString);
+    if (!date) return '';
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  };
+
+  /** Shorter range for the trigger (avoids awkward mid-date line breaks). */
+  const formatCompactRange = (depIso, retIso) => {
+    const dep = parseISODateLocal(depIso);
+    const ret = parseISODateLocal(retIso);
+    if (!dep || !ret) return '';
+    const sameYear = dep.getFullYear() === ret.getFullYear();
+    const depPart = sameYear
+      ? dep.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+      : dep.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    const retPart = ret.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    return `${depPart} – ${retPart}`;
   };
 
   const displayText = () => {
     if (departureDate && returnDate) {
-      return `${formatDate(departureDate)} - ${formatDate(returnDate)}`;
+      return formatCompactRange(departureDate, returnDate);
     }
     if (departureDate) {
       return formatDate(departureDate);
     }
     return 'Select Dates';
   };
+
+  const fullRangeTitle =
+    departureDate && returnDate
+      ? `${formatDate(departureDate)} – ${formatDate(returnDate)}`
+      : undefined;
 
   return (
     <div className="relative" ref={dropdownRef}>
@@ -58,15 +78,20 @@ const DatesDropdown = ({
           onToggle();
         }}
       >
-        <Calendar1 className='text-white/40 mr-3 group-hover:text-(--primary) transition-colors font-light'/>
-        <div className="flex flex-col flex-1">
-          <span className="text-white font-display text-lg leading-tight">{displayText()}</span>
-          <span className="text-[10px] text-white/40 uppercase tracking-widest">Round Trip</span>
+        <Calendar1 className="text-white/40 mr-3 shrink-0 group-hover:text-(--primary) transition-colors font-light" />
+        <div className="flex min-w-0 flex-1 flex-col justify-center gap-0.5 pr-1">
+          <span
+            className="block min-w-0 font-display text-base leading-snug text-white sm:text-lg [overflow-wrap:anywhere] md:whitespace-nowrap md:overflow-hidden md:text-ellipsis"
+            title={fullRangeTitle ?? (departureDate ? formatDate(departureDate) : undefined)}
+          >
+            {displayText()}
+          </span>
+          {/* <span className="text-[10px] uppercase tracking-widest text-white/40">Round Trip</span> */}
         </div>
         {isOpen ? (
-          <ChevronUp className="text-white/40 text-sm transition-transform" />
+          <ChevronUp className="h-4 w-4 shrink-0 text-white/40 transition-transform" />
         ) : (
-          <ChevronDown className="text-white/40 text-sm transition-transform" />
+          <ChevronDown className="h-4 w-4 shrink-0 text-white/40 transition-transform" />
         )}
       </div>
 
@@ -77,41 +102,28 @@ const DatesDropdown = ({
           onClick={(e) => e.stopPropagation()}
         >
           <div className="p-6 space-y-6">
-            {/* Date Selection */}
-            <div className="space-y-4">
-              <div>
-                <label className="text-(--primary) text-xs font-bold uppercase tracking-widest mb-2 block">
-                  Departure Date
-                </label>
-                <input
-                  type="date"
-                  value={departureDate || ''}
-                  onChange={(e) => onDepartureDateChange(e.target.value)}
-                  min={new Date().toISOString().split('T')[0]}
-                  className="w-full bg-white/5 border border-white/10 rounded px-4 py-2 text-white focus:border-(--primary) focus:outline-none"
-                />
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-(--primary)">Departure</p>
+                <p className="mt-1 font-display text-lg text-white">
+                  {departureDate ? formatDate(departureDate) : '—'}
+                </p>
               </div>
-
-              <div>
-                <label className="text-(--primary) text-xs font-bold uppercase tracking-widest mb-2 block">
-                  Return Date
-                </label>
-                <input
-                  type="date"
-                  value={returnDate || ''}
-                  onChange={(e) => onReturnDateChange(e.target.value)}
-                  min={departureDate || new Date().toISOString().split('T')[0]}
-                  className="w-full bg-white/5 border border-white/10 rounded px-4 py-2 text-white focus:border-(--primary) focus:outline-none"
-                />
+              <div className="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-(--primary)">Return</p>
+                <p className="mt-1 font-display text-lg text-white">
+                  {returnDate ? formatDate(returnDate) : '—'}
+                </p>
               </div>
             </div>
 
-            <button
-              onClick={onClose}
-              className="cursor-pointer w-full bg-(--primary) hover:bg-(--primary-dark) text-(--navy-deep) font-bold uppercase tracking-[0.15em] text-xs py-3 rounded transition-colors duration-300"
-            >
-              Done
-            </button>
+            <BookingCalendar
+              departureDate={departureDate}
+              returnDate={returnDate}
+              onDepartureDateChange={onDepartureDateChange}
+              onReturnDateChange={onReturnDateChange}
+              minDate={new Date().toISOString().split('T')[0]}
+            />
           </div>
         </div>
       )}

@@ -62,7 +62,7 @@ const HeroBanner = ({
             id="heroTitle"
             style={{ marginTop: "32px" }}
           />
-          <div className="max-w-2xl mx-auto pt-8 transition-all duration-700 border-t border-[#f9f6ee]/12 shadow-[0_1px_0_rgba(235,190,105,0.12)]"></div>
+          <div className="max-w-2xl mx-auto lg:pt-8 transition-all duration-700 border-t border-[#f9f6ee]/12 shadow-[0_1px_0_rgba(235,190,105,0.12)]"></div>
         </div>
 
         {/* BOOKING WIDGET */}
