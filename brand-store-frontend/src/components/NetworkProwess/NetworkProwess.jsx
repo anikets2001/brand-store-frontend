@@ -22,10 +22,10 @@ const NetworkProwess = () => {
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[color:var(--primary)]/25 to-transparent" />
       <div className="max-w-7xl mx-auto">
         <div className="mb-10 md:mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-stone-800 mb-2 md:mb-3">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl heading-brand mb-2 md:mb-3">
             {headline}
           </h2>
-          <p className="text-stone-700 text-sm md:text-base">
+          <p className="subheading-brand text-xl md:text-xl">
             {subline}
           </p>
         </div>
@@ -65,13 +65,14 @@ const NetworkProwess = () => {
           {tiles.map((tile, index) => (
             <div
               key={activeTab === TAB_DOMESTIC ? `dom-${index}-${tile.city}` : `intl-${index}-${tile.city}`}
-              className="group relative aspect-[3/4] rounded-lg overflow-hidden premium-card transition-all duration-300"
+              className="group relative rounded-lg overflow-hidden premium-card transition-all duration-300"
             >
               <Image
                 src={tile.img}
                 alt={tile.country ? `${tile.city}, ${tile.country}` : `Destination: ${tile.city}`}
-                fill
-                className="group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                width={600}
+                height={900}
+                className="h-auto w-full object-contain object-center group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                 fetchPriority="low"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent" />

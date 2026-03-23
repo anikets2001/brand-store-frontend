@@ -66,8 +66,8 @@ const PassengersDropdown = ({
 
       {isOpen && (
         <div
-          className="absolute w-full md:w-100 airindia-panel border border-(--primary)/20 rounded-lg overflow-hidden z-50"
-          style={{ top: "100%", left: 0, marginTop: 8, zIndex: 99999 }}
+          className="absolute right-0 left-auto w-full md:w-100 max-w-[calc(100vw-2rem)] airindia-panel border border-(--primary)/20 rounded-lg overflow-hidden z-50"
+          style={{ top: "100%", marginTop: 8, zIndex: 99999 }}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="p-6 space-y-6">

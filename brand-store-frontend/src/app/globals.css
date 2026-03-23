@@ -69,22 +69,42 @@ body {
 .bg-jaali,
 .bg-beige-jaali {
   --jaali-tint: rgba(242, 235, 227, 0.28);
+  --tile-height: 420px;
   background-color: var(--airindia-beige-light);
+  /* Use the dedicated repeating pattern asset (more seamless between repeats). */
   background-image: url('/assets/air-india/images/aircraft-images/jaali.png');
-  background-repeat: repeat, repeat;
-  /* Slightly smaller tile size so tiles overlap and hide black borders between repeats */
-  background-size: 100% 100%, 276px auto;
-  background-position: -1 2, 0 0;
+  /* Full-width jaali that does not stretch with section height. */
+  background-repeat: repeat-y;
+  /*
+   * Slight overlap to hide visible seams between repeated tiles.
+   * (Browser sub-pixel rounding + any transparent 1px edge in the PNG
+   * can otherwise show up as a thin horizontal line.)
+   */
+  /* Fixed attachment keeps repeat alignment across adjacent sections. */
+  background-attachment: fixed;
+  /* Increase overlap to cover any 1px+ transparent edge in the PNG. */
+  background-position: center -12px;
+  background-size: 100% calc(100vh - 80px);
   color: var(--text-on-beige);
   position: relative;
 }
 .bg-jaali {
   --jaali-tint: rgba(232, 223, 212, 0.22);
-  background-size: 100% 100%, 256px auto;
+  /* Keep the same tile height as other jaali sections to avoid seams on transitions. */
+  --tile-height: 420px;
 }
 .bg-beige-jaali {
   --jaali-tint: rgba(242, 235, 227, 0.32);
-  background-size: 100% 100%, 296px auto;
+  --tile-height: 420px;
+}
+
+@media (max-width: 640px) {
+  /* `background-attachment: fixed` can render differently on mobile and
+     can re-introduce a seam between repeated tiles. */
+  .bg-jaali,
+  .bg-beige-jaali {
+    background-attachment: scroll;
+  }
 }
 
 /* Text on jali: dark for readability (overrides heading/subtext-premium) */
@@ -129,6 +149,26 @@ body {
 .subtext-premium {
   color: rgba(249, 246, 238, 0.82);
   text-shadow: 0 0 1px rgba(83, 18, 81, 0.1);
+}
+
+.heading-brand {
+  color: var(--airindia-dark-red);
+  text-shadow: none;
+}
+
+.subheading-brand {
+  color: var(--airindia-purple);
+  text-shadow: none;
+}
+
+.heading-brand-light {
+  color: var(--primary);
+  text-shadow: 0 1px 2px rgba(83, 18, 81, 0.2);
+}
+
+.subheading-brand-light {
+  color: var(--airindia-gold-light);
+  text-shadow: 0 0 1px rgba(83, 18, 81, 0.15);
 }
 
 /* Custom styles for the brand store start */
