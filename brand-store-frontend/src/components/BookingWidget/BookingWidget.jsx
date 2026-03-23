@@ -19,8 +19,8 @@ const BookingWidget = ({
   updatePassengers,
   onDone,
 }) => {
-  const [fromAirport, setFromAirport] = useState({ code: 'AUH', city: 'Abu Dhabi', country: 'UAE' });
-  const [toAirport, setToAirport] = useState(null);
+  const [fromAirport, setFromAirport] = useState({ code: 'DEL', city: 'Delhi', country: 'India' });
+  const [toAirport, setToAirport] = useState({ code: 'BOM', city: 'Mumbai', country: 'India' });
   const [fromDropdownOpen, setFromDropdownOpen] = useState(false);
   const [toDropdownOpen, setToDropdownOpen] = useState(false);
   const [datesDropdownOpen, setDatesDropdownOpen] = useState(false);
@@ -140,7 +140,7 @@ const BookingWidget = ({
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col md:flex-row justify-end items-center space-y-4 md:space-y-0 relative z-0">
+        <div className="mt-8 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 relative z-0">
           {/* <div className="flex space-x-6">
             <label className="flex items-center space-x-2 cursor-pointer group">
               <div className="w-4 h-4 rounded-full border border-white/30 flex items-center justify-center group-hover:border-(--primary)" />
@@ -159,7 +159,7 @@ const BookingWidget = ({
             </label>
           </div> */}
 
-          <button className="cursor-pointer w-full md:w-auto min-h-[48px] px-8 md:px-12 py-3.5 md:h-14 bg-linear-to-r from-(--primary) to-(--primary-dark) text-(--navy-deep) font-bold uppercase tracking-[0.2em] text-xs rounded shadow-[0_4px_20px_-5px_rgba(214,176,109,0.3)] hover:shadow-[0_0_30px_rgba(214,176,109,0.4)] transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center border border-white/10 touch-manipulation">
+          <button className="cursor-pointer w-full md:w-auto min-h-[48px] px-16 md:px-12 py-3.5 md:h-14 bg-linear-to-r from-(--primary) to-(--primary-dark) text-(--navy-deep) font-bold uppercase tracking-[0.2em] text-xs rounded shadow-[0_4px_20px_-5px_rgba(214,176,109,0.3)] hover:shadow-[0_0_30px_rgba(214,176,109,0.4)] transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center border border-white/10 touch-manipulation">
             Search Flights
           </button>
         </div>

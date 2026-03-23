@@ -33,7 +33,7 @@ const config = {
   assets: {
     vrBasePath: `/assets/air-india/air-india-vr/VR`,
     /** Jaali pattern for beige sections and hero (used in CSS and hero strip) */
-    jaaliPatternUrl: '/assets/air-india/images/aircraft-images/jali.png',
+    jaaliPatternUrl: '/assets/air-india/images/aircraft-images/jaali.png',
   },
 
   /** VR WebGL cabin experiences; path is relative to assets.vrBasePath, ending at WebGL folder that contains index.html */

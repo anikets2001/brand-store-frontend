@@ -27,7 +27,7 @@ const CampaignSection = () => {
             <div className="absolute inset-0 bg-black/10 pointer-events-none" />
           </div>
           <div>
-            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-stone-800 mb-4 md:mb-6 leading-tight">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl heading-brand mb-4 md:mb-6 leading-tight">
               {campaign.headline}
             </h2>
             <p className="text-stone-700 text-sm md:text-base leading-relaxed">

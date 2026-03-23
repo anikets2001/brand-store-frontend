@@ -19,7 +19,7 @@ const WhatsNewSection = () => {
           <span className="text-xs font-bold tracking-[0.25em] sm:tracking-[0.3em] text-(--primary) uppercase block mb-2 md:mb-3">
             News & Updates
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-stone-800">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl heading-brand">
             {sectionTitle || "What's New"}
           </h2>
         </div>

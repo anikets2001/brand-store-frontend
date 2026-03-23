@@ -14,10 +14,10 @@ const SocialHighlightsSection = () => {
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[color:var(--primary)]/25 to-transparent" />
       <div className="max-w-7xl mx-auto">
         <div className="mb-10 md:mb-14">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl heading-premium mb-3">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl heading-brand-light mb-3">
             Social Highlights
           </h2>
-          <p className="subtext-premium text-sm md:text-base max-w-xl">
+          <p className="subheading-brand-light text-sm md:text-base max-w-xl">
             Glimpses from top destinations.
           </p>
         </div>

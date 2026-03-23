@@ -13,7 +13,7 @@ const ExperienceSection = () => {
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-jaali">
       <div className="max-w-7xl mx-auto">
         <div className="mb-10 md:mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-stone-800 leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl heading-brand leading-tight">
             Elevated Journeys
           </h2>
         </div>
@@ -43,8 +43,8 @@ const ExperienceSection = () => {
                     fetchPriority="low"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 className="font-display text-lg md:text-xl text-white drop-shadow-md">
+                  <div className="absolute bottom-0 p-4 w-full">
+                    <h3 className="font-display text-lg md:text-xl text-white drop-shadow-md text-center">
                       {item.title}
                     </h3>
                   </div>
