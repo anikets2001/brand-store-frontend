@@ -33,7 +33,7 @@ const BookingWidget = ({
     setToAirport(temp);
   };
   return (
-    <div className="max-w-6xl mx-auto lg:mt-[280px]">
+    <div className="w-full mx-auto lg:mt-[280px]">
       <div
         className={[
           'airindia-panel rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-10 border border-white/[0.06] shadow-[0_1px_0_rgba(249,246,238,0.04),0_20px_50px_rgba(83,18,81,0.4)] relative overflow-visible group mt-4 z-40',
@@ -58,7 +58,7 @@ const BookingWidget = ({
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-3 md:gap-4 relative z-10">
           {/* From */}
-          <div className="md:col-span-3">
+          <div className="md:col-span-2">
             <FromDropdown
               selectedAirport={fromAirport}
               onSelect={setFromAirport}
@@ -84,7 +84,7 @@ const BookingWidget = ({
           </div>
 
           {/* To */}
-          <div className="md:col-span-3">
+          <div className="md:col-span-2">
             <ToDropdown
               selectedAirport={toAirport}
               onSelect={setToAirport}
@@ -101,7 +101,7 @@ const BookingWidget = ({
           </div>
 
           {/* Dates */}
-          <div className="md:col-span-3">
+          <div className="md:col-span-5">
             <DatesDropdown
               departureDate={departureDate}
               returnDate={returnDate}

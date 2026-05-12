@@ -46,6 +46,8 @@ export default function BookingCalendar({
   returnDate,
   onDepartureDateChange,
   onReturnDateChange,
+  activeField = 'departure',
+  onActiveFieldChange,
   minDate,
 }) {
   const today = useMemo(() => startOfToday(), []);
@@ -107,6 +109,32 @@ export default function BookingCalendar({
 
   const handleDayClick = (iso) => {
     if (iso < minISO) return;
+
+    if (activeField === 'departure') {
+      onDepartureDateChange(iso);
+      if (returnDate && iso > returnDate) {
+        onReturnDateChange('');
+      }
+      if (!returnDate || iso > returnDate) {
+        onActiveFieldChange?.('return');
+      }
+      return;
+    }
+
+    if (activeField === 'return') {
+      if (!departureDate) {
+        onDepartureDateChange(iso);
+        onReturnDateChange('');
+        return;
+      }
+      if (iso < departureDate) {
+        onDepartureDateChange(iso);
+        onReturnDateChange('');
+        return;
+      }
+      onReturnDateChange(iso);
+      return;
+    }
 
     if (!departureDate) {
       onDepartureDateChange(iso);

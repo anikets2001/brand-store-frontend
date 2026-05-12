@@ -151,13 +151,33 @@ body {
   text-shadow: 0 0 1px rgba(83, 18, 81, 0.1);
 }
 
+/* Serif subheads / in-section titles (e.g. cabin video headlines) */
 .heading-brand {
   color: var(--airindia-dark-red);
   text-shadow: none;
 }
 
+/* Primary section titles on beige/jaali — purple vs red subheads for clearer hierarchy */
+.heading-brand-main {
+  color: var(--airindia-purple);
+  text-shadow: none;
+}
+
+/* Same serif + purple family on dark gradients (VR strip) — light tint for contrast */
+.heading-brand-main-on-dark {
+  color: #efe6f5;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.42), 0 0 1px rgba(83, 18, 81, 0.6);
+  letter-spacing: 0.01em;
+}
+
 .subheading-brand {
   color: var(--airindia-purple);
+  text-shadow: none;
+}
+
+/* Supporting line under a purple main title (pairs with .heading-brand-main) */
+.subheading-brand-red {
+  color: var(--airindia-dark-red);
   text-shadow: none;
 }
 

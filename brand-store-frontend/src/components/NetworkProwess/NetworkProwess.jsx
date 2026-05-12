@@ -18,14 +18,13 @@ const NetworkProwess = () => {
   const tiles = activeTab === TAB_DOMESTIC ? domesticTiles : internationalTiles;
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-beige-jaali relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[color:var(--primary)]/25 to-transparent" />
-      <div className="max-w-7xl mx-auto">
+    <section className="relative overflow-hidden border-t-2 border-[color:var(--primary)]/50 bg-beige-jaali px-4 py-24 pt-20 sm:px-6 md:pt-24 lg:px-8">
+      <div className="mx-auto max-w-7xl">
         <div className="mb-10 md:mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl heading-brand mb-2 md:mb-3">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl heading-brand-main mb-2 md:mb-3">
             {headline}
           </h2>
-          <p className="subheading-brand text-xl md:text-xl">
+          <p className="subheading-brand-red text-xl md:text-xl">
             {subline}
           </p>
         </div>

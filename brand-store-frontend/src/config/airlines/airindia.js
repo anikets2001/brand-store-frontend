@@ -18,13 +18,14 @@ const imgEntertainment = `/assets/air-india/images/experience/PEY_IFE.jpg`;
 const imgMaharajaClub = `/assets/air-india/images/experience/MC.png`;
 const imgLounges = `/assets/air-india/images/experience/lounges.jpg`;
 const imgWarmHospitality = `/assets/air-india/images/experience/Crew_Group.jpg`;
+const imgCodeshare = `/assets/air-india/images/experience/codeshare.jpg`;
 
 
 const config = {
   brand: {
     name: 'Air India',
     displayName: 'Air India',
-    logoUrl: `/assets/air-india/images/aircraft-images/AI-logo.png`,
+    logoUrl: `/assets/air-india/images/airIndiaLogo.png`,
     bookCtaText: 'Book Now With Air India',
     partnerLogoUrl: `/assets/air-india/images/yatra-logo.png`,
     partnerLogoAlt: 'Yatra – booking partner',
@@ -201,6 +202,16 @@ const config = {
     },
   ],
 
+  codesharePartnerships: {
+    headline: 'Codeshare Partnerships',
+    lines: [
+      'Explore more with our 100+ global partners on a single ticket',
+      'Enjoy seamless baggage transfer and frequent flyer benefits',
+    ],
+    imageSrc: imgCodeshare,
+    imageAlt: 'Air India codeshare partnerships',
+  },
+
   featureCards: [
     {
       id: 1,
@@ -310,55 +321,45 @@ const config = {
     sectionTitle: "What's New at Air India",
     items: [
       {
-        title: "Air India unveils custom-styled cabin interiors of the first made-for-Air India B787-9; New interiors to become standard across B787 fleet",
-        url: 'https://www.airindia.com/in/en/newsroom/press-release/Air-India-unveils-custom-styled-cabin-interiors-of-the-first-made-for-Air-India-B787-9.html',
+        title: "Air India welcomes its first retrofitted B787 featuring new cabin interiors and livery",
+        url: 'https://www.airindia.com/in/en/newsroom/press-release/Air-India-welcomes-its-first-retrofitted-B787.html',
         thumbnailSrc: `/assets/air-india/images/thumbnails/01.png`,
       },
       {
-        title: 'Air India completes first phase of legacy retrofit programme; 104 A320 family aircraft now feature new or upgraded cabin interiors',
-        url: 'https://www.airindia.com/in/en/newsroom/press-release/Air-India-completes-first-phase-of-legacy-retrofit-programme.html',
+        title: 'Air India becomes first airline to launch flights to Halwara (Ludhiana) on 15 May',
+        url: 'https://www.airindia.com/content/air-india/in/en/newsroom/press-release/Air-India-becomes-first-airline-to-announce-flights-to-Halwara-Ludhiana.html',
         thumbnailSrc: `/assets/air-india/images/thumbnails/02.png`,
       },
       {
-        title: 'Air India unveils a refreshed beverage collection featuring celebrated wines and spirits from across the world',
-        url: 'https://www.airindia.com/in/en/newsroom/press-release/Air-India-unveils-a-refreshed-beverage-collection-featuring-celebrated-wines-and-spirits.html',
+        title: 'Air India announces key enhancements to Maharaja Club',
+        url: 'https://www.airindia.com/content/air-india/in/en/newsroom/press-release/Air-India-announces-key-enhancements-to-Maharaja-Club.html',
         thumbnailSrc: `/assets/air-india/images/thumbnails/03.png`,
       },
       {
-        title: 'Air India to resume non-stop flights to Rome from March 2026',
-        url: 'https://www.airindia.com/content/air-india/in/en/newsroom/press-release/Air-India-to-resume-non-stop-flights-to-Rome-from-March-2026.html',
+        title: 'Air India touches down at Rome Fiumicino Airport, expanding mainland Europe network to 8 gateways',
+        url: 'https://www.airindia.com/content/air-india/in/en/newsroom/press-release/Air-India-touches-down-at-Rome-Fiumicino-Airport,-expanding-mainland-Europe-network-to-8-gateways.html',
         thumbnailSrc: `/assets/air-india/images/thumbnails/04.png`,
       },
       {
-        title: 'Air India wins Best Domestic Airline at Travel + Leisure Best Awards 2025',
-        url: 'https://www.airindia.com/in/en/newsroom/articles/Air-India-wins-Best-Domestic-Airline-at-Travel-and-Leisure-Best-Awards-2025.html',
+        title: 'Air India unveils custom-styled cabin interiors of the first made-for-Air India B787-9; New interiors to become standard across B787 fleet',
+        url: 'https://www.airindia.com/in/en/newsroom/press-release/Air-India-unveils-custom-styled-cabin-interiors-of-the-first-made-for-Air-India-B787-9.html',
         thumbnailSrc: `/assets/air-india/images/thumbnails/05.png`,
       },
       {
-        title: "Air India earns recognition as the 'Most Improved Airline' at APEX Awards",
-        url: 'https://www.airindia.com/in/en/newsroom/articles/Air-India-earns-recognition-as-the-Most-Improved-Airline-at-APEX-Awards.html',
+        title: "Air India completes first phase of legacy retrofit programme; 104 A320 family aircraft now feature new or upgraded cabin interiors",
+        url: 'https://www.airindia.com/in/en/newsroom/press-release/Air-India-completes-first-phase-of-legacy-retrofit-programme.html',
         thumbnailSrc: `/assets/air-india/images/thumbnails/06.png`,
       },
       {
-        title: 'Air India expands UK connectivity this winter with fourth daily flight between Delhi and London Heathrow',
-        url: 'https://www.airindia.com/in/en/newsroom/press-release/Air-India-expands-UK-connectivity-this-winter-with-fourth-daily-flight.html',
+        title: 'Air India earns recognition as the ‘Most Improved Airline’ at APEX Awards',
+        url: 'https://www.airindia.com/in/en/newsroom/articles/Air-India-earns-recognition-as-the-Most-Improved-Airline-at-APEX-Awards.html',
         thumbnailSrc: `/assets/air-india/images/thumbnails/07.png`,
       },
       {
-        title: "Air India cabin crew's guide to Manila",
-        url: 'https://www.airindia.com/in/en/newsroom/articles/Air-India-cabin-crew-s-guide-to-Manila.html',
-        thumbnailSrc: `/assets/air-india/images/thumbnails/08.png`,
-      },
-      {
-        title: 'Air India elevates its inflight dining experience with refreshed global menu',
+        title: "Air India elevates its inflight dining experience with refreshed global menu",
         url: 'https://www.airindia.com/in/en/newsroom/press-release/Air-India-elevates-its-inflight-dining-experience-with-refreshed-global-menu.html',
-        thumbnailSrc: `/assets/air-india/images/thumbnails/09.png`,
-      },
-      {
-        title: 'Air India to resume operations to mainland China with non-stop flights to Shanghai from February 2026',
-        url: 'https://www.airindia.com/in/en/newsroom/press-release/Air-India-to-resume-operations-to-China-with-non-stop-flights-to-Shanghai.html',
-        thumbnailSrc: `/assets/air-india/images/thumbnails/10.png`,
-      },
+        thumbnailSrc: `/assets/air-india/images/thumbnails/08.png`,
+      }
     ],
   },
 
@@ -368,8 +369,10 @@ const config = {
     { id: 'bali', label: 'Bali', videoSrc: 'https://ns.yatracdn.com/common/airIndia/bali.mp4' },
     { id: 'saigon', label: 'Saigon', videoSrc: 'https://ns.yatracdn.com/common/airIndia/Saigon_Video2.mp4' },
     { id: 'shanghai', label: 'Shanghai', videoSrc: 'https://ns.yatracdn.com/common/airIndia/Shanghai.mp4' },
-    { id: 'aircraft', label: 'Aircraft', videoSrc: 'https://ns.yatracdn.com/common/airIndia/Aircraft.mp4' },
     { id: 'manila', label: 'Manila', videoSrc: 'https://ns.yatracdn.com/common/airIndia/manila_mmt.mp4' },
+    { id: 'rome', label: 'Rome', videoSrc: 'https://ns.yatracdn.com/common/videos/Rome.mp4' },
+    { id: 'hanoi', label: 'Hanoi', videoSrc: 'https://ns.yatracdn.com/common/videos/Hanoi.mp4' },
+    { id: 'haneda', label: 'Haneda', videoSrc: 'https://ns.yatracdn.com/common/videos/Haneda.mp4' },
   ],
 
   galleryImages: [

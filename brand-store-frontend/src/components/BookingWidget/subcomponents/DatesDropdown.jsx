@@ -1,7 +1,7 @@
 'use client';
 
-import { Calendar1, ChevronDown, ChevronUp } from 'lucide-react';
-import { useRef, useEffect } from 'react';
+import { Calendar1 } from 'lucide-react';
+import { useRef, useEffect, useState } from 'react';
 import BookingCalendar, { parseISODateLocal } from './BookingCalendar';
 
 const DatesDropdown = ({
@@ -14,6 +14,7 @@ const DatesDropdown = ({
   onClose,
 }) => {
   const dropdownRef = useRef(null);
+  const [activeField, setActiveField] = useState('departure');
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -38,67 +39,72 @@ const DatesDropdown = ({
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
   };
 
-  /** Shorter range for the trigger (avoids awkward mid-date line breaks). */
-  const formatCompactRange = (depIso, retIso) => {
-    const dep = parseISODateLocal(depIso);
-    const ret = parseISODateLocal(retIso);
-    if (!dep || !ret) return '';
-    const sameYear = dep.getFullYear() === ret.getFullYear();
-    const depPart = sameYear
-      ? dep.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
-      : dep.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-    const retPart = ret.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-    return `${depPart} – ${retPart}`;
-  };
-
-  const displayText = () => {
-    if (departureDate && returnDate) {
-      return formatCompactRange(departureDate, returnDate);
-    }
-    if (departureDate) {
-      return formatDate(departureDate);
-    }
-    return 'Select Dates';
-  };
-
   const fullRangeTitle =
     departureDate && returnDate
       ? `${formatDate(departureDate)} – ${formatDate(returnDate)}`
       : undefined;
+
+  const openCalendar = (field) => {
+    setActiveField(field);
+    if (!isOpen) {
+      onToggle();
+    }
+  };
 
   return (
     <div className="relative" ref={dropdownRef}>
       <label className="text-[10px] text-(--primary) uppercase font-bold tracking-widest mb-2 block pl-1">
         Dates
       </label>
-      <div
-        className="relative group h-16 bg-white/5 border border-white/10 rounded hover:border-(--primary)/50 transition-all cursor-pointer flex items-center px-4"
-        onClick={(e) => {
-          e.stopPropagation();
-          onToggle();
-        }}
-      >
-        <Calendar1 className="text-white/40 mr-3 shrink-0 group-hover:text-(--primary) transition-colors font-light" />
-        <div className="flex min-w-0 flex-1 flex-col justify-center gap-0.5 pr-1">
-          <span
-            className="block min-w-0 font-display text-base leading-snug text-white sm:text-lg [overflow-wrap:anywhere] md:whitespace-nowrap md:overflow-hidden md:text-ellipsis"
-            title={fullRangeTitle ?? (departureDate ? formatDate(departureDate) : undefined)}
-          >
-            {displayText()}
-          </span>
-          {/* <span className="text-[10px] uppercase tracking-widest text-white/40">Round Trip</span> */}
-        </div>
-        {isOpen ? (
-          <ChevronUp className="h-4 w-4 shrink-0 text-white/40 transition-transform" />
-        ) : (
-          <ChevronDown className="h-4 w-4 shrink-0 text-white/40 transition-transform" />
-        )}
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+        <button
+          type="button"
+          className={[
+            'relative group h-16 bg-white/5 border rounded transition-all cursor-pointer flex items-center px-4 text-left',
+            activeField === 'departure' && isOpen ? 'border-(--primary)/60' : 'border-white/10 hover:border-(--primary)/50',
+          ].join(' ')}
+          onClick={(e) => {
+            e.stopPropagation();
+            openCalendar('departure');
+          }}
+        >
+          <Calendar1 className="text-white/40 mr-3 shrink-0 group-hover:text-(--primary) transition-colors font-light" />
+          <div className="flex min-w-0 flex-1 flex-col justify-center gap-0.5 pr-1">
+            <span className="text-[10px] uppercase tracking-widest text-white/45">Departure Date</span>
+            <span className="block min-w-0 font-display text-base leading-snug text-white sm:text-lg md:whitespace-nowrap md:overflow-hidden md:text-ellipsis">
+              {departureDate ? formatDate(departureDate) : 'Select Date'}
+            </span>
+          </div>
+        </button>
+
+        <button
+          type="button"
+          className={[
+            'relative group h-16 bg-white/5 border rounded transition-all cursor-pointer flex items-center px-4 text-left',
+            activeField === 'return' && isOpen ? 'border-(--primary)/60' : 'border-white/10 hover:border-(--primary)/50',
+          ].join(' ')}
+          onClick={(e) => {
+            e.stopPropagation();
+            openCalendar('return');
+          }}
+        >
+          <Calendar1 className="text-white/40 mr-3 shrink-0 group-hover:text-(--primary) transition-colors font-light" />
+          <div className="flex min-w-0 flex-1 flex-col justify-center gap-0.5 pr-1">
+            <span className="text-[10px] uppercase tracking-widest text-white/45">Return Date</span>
+            <span
+              className="block min-w-0 font-display text-base leading-snug text-white sm:text-lg md:whitespace-nowrap md:overflow-hidden md:text-ellipsis"
+              title={fullRangeTitle ?? (returnDate ? formatDate(returnDate) : undefined)}
+            >
+              {returnDate ? formatDate(returnDate) : 'Select Date'}
+            </span>
+          </div>
+        </button>
       </div>
 
       {isOpen && (
         <div
-          className="absolute right-0 left-auto w-full md:w-100 max-w-[calc(100vw-2rem)] airindia-panel border border-(--primary)/20 rounded-lg overflow-hidden z-50"
-          style={{ top: '100%', marginTop: 8, zIndex: 99999 }}
+          className="absolute left-0 right-0 top-full z-50 mt-2 w-full max-w-[min(100%,calc(100vw-2rem))] airindia-panel border border-(--primary)/20 rounded-lg overflow-hidden"
+          style={{ zIndex: 99999 }}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="p-6 space-y-6">
@@ -122,6 +128,8 @@ const DatesDropdown = ({
               returnDate={returnDate}
               onDepartureDateChange={onDepartureDateChange}
               onReturnDateChange={onReturnDateChange}
+              activeField={activeField}
+              onActiveFieldChange={setActiveField}
               minDate={new Date().toISOString().split('T')[0]}
             />
           </div>

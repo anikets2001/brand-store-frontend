@@ -13,7 +13,7 @@ const CabinSection = () => {
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-jaali">
       <div className="max-w-7xl mx-auto">
         <div className="mb-10 md:mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl heading-brand leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl heading-brand-main leading-tight">
             Upgraded Fleet and Cabins
           </h2>
         </div>

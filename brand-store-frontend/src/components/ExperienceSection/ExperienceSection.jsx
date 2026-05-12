@@ -10,16 +10,16 @@ const ExperienceSection = () => {
   if (!items?.length) return null;
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-jaali">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-10 md:mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl heading-brand leading-tight">
+    <section className="border-b border-[rgba(61,54,48,0.14)] bg-jaali px-4 py-20 pb-24 sm:px-6 md:py-24 md:pb-28 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="mb-8 md:mb-12">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl heading-brand-main leading-tight">
             Elevated Journeys
           </h2>
         </div>
 
-        {/* 3-2-2 layout: all tiles same size; rows 2 & 3 centered with space on both ends */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 md:gap-8">
+        {/* 3-2-2 layout: uniform square media + text; rows 2 & 3 centered */}
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 md:gap-7 lg:grid-cols-6 lg:gap-8">
           {items.map((item, index) => {
             let desktopPosition = "lg:col-span-2";
 
@@ -31,26 +31,27 @@ const ExperienceSection = () => {
             return (
               <div
                 key={item.id}
-                className={`group relative rounded-lg overflow-hidden premium-card transition-all duration-300 bg-premium-darkred ${desktopPosition}`}
+                className={`group relative flex flex-col overflow-hidden rounded-lg premium-card transition-all duration-300 bg-premium-darkred ${desktopPosition}`}
               >
-                <div className="aspect-[4/3] relative overflow-hidden">
+                {/* Square frame: square key art fills width; landscapes crop evenly — slightly tighter than ultra-wide layout */}
+                <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-black/20">
                   <Image
                     src={item.imageSrc}
                     alt={item.alt || item.title}
                     fill
-                    className="object-cover group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (min-width: 1024px) 33vw"
+                    className="object-cover object-center transition-all duration-500 group-hover:scale-[1.03] group-hover:opacity-100"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (min-width: 1024px) 30vw"
                     fetchPriority="low"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-                  <div className="absolute bottom-0 p-4 w-full">
-                    <h3 className="font-display text-lg md:text-xl text-white drop-shadow-md text-center">
+                  <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-80 transition-opacity group-hover:opacity-60" />
+                  <div className="absolute bottom-0 w-full p-3 md:p-4">
+                    <h3 className="text-center font-display text-lg text-white drop-shadow-md md:text-xl">
                       {item.title}
                     </h3>
                   </div>
                 </div>
 
-                <div className="p-4 md:p-5">
+                <div className="flex flex-1 flex-col p-4 md:p-5">
                   <div className="flex items-center gap-4">
                     <Image
                       src={
@@ -60,7 +61,7 @@ const ExperienceSection = () => {
                       width={20}
                       height={20}
                     />
-                    <p className="text-white text-sm font-medium leading-snug">
+                    <p className="text-sm font-medium leading-snug text-white">
                       {item.line1}
                     </p>
                   </div>
@@ -74,7 +75,7 @@ const ExperienceSection = () => {
                         width={20}
                         height={20}
                       />
-                      <p className="text-white text-sm font-medium leading-snug">
+                      <p className="text-sm font-medium leading-snug text-white">
                         {item.line2}
                       </p>
                     </div>

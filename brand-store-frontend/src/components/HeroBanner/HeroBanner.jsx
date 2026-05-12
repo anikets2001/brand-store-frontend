@@ -46,7 +46,7 @@ const HeroBanner = ({
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full relative z-10 pt-6 sm:pt-10 pb-12 sm:pb-20">
+      <div className=" mx-auto px-4 sm:px-50 w-full relative z-10 pt-6 sm:pt-10 pb-12 sm:pb-20">
         {/* HERO */}
         <div
           className={`text-center mb-16 ${
