@@ -18,34 +18,58 @@ const ExperienceSection = () => {
           </h2>
         </div>
 
-        {/* 3-2-2 layout: uniform square media + text; rows 2 & 3 centered */}
+        {/* 3-2-3 (8 items) or 3-2-2 (7): uniform square media + text; row 2 centered; last row full (3) or centered pair (2) */}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 md:gap-7 lg:grid-cols-6 lg:gap-8">
           {items.map((item, index) => {
+            const useContain = item.imageObjectFit === "contain";
+            const imageFitClass = useContain ? "object-contain" : "object-cover";
+            const positionKey = useContain
+              ? "center"
+              : item.imageObjectPosition || "center";
+            const imagePositionClass =
+              {
+                center: "object-center",
+                left: "object-left",
+                right: "object-right",
+                top: "object-top",
+                bottom: "object-bottom",
+              }[positionKey] || "object-center";
+
             let desktopPosition = "lg:col-span-2";
+            const lastRowCount = items.length - 5;
 
             if (index === 3) desktopPosition += " lg:col-start-2";
             if (index === 4) desktopPosition += " lg:col-start-4";
-            if (index === 5) desktopPosition += " lg:col-start-2";
-            if (index === 6) desktopPosition += " lg:col-start-4";
+            if (index >= 5 && lastRowCount === 2) {
+              if (index === 5) desktopPosition += " lg:col-start-2";
+              if (index === 6) desktopPosition += " lg:col-start-4";
+            }
+            if (index >= 5 && lastRowCount === 3) {
+              if (index === 5) desktopPosition += " lg:col-start-1";
+              if (index === 6) desktopPosition += " lg:col-start-3";
+              if (index === 7) desktopPosition += " lg:col-start-5";
+            }
 
             return (
               <div
                 key={item.id}
                 className={`group relative flex flex-col overflow-hidden rounded-lg premium-card transition-all duration-300 bg-premium-darkred ${desktopPosition}`}
               >
-                {/* Square frame: square key art fills width; landscapes crop evenly — slightly tighter than ultra-wide layout */}
-                <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-black/20">
+                {/* Square frame: cover by default; contain shows full art (letterbox) when configured */}
+                <div
+                  className={`relative aspect-square w-full shrink-0 overflow-hidden ${useContain ? "bg-neutral-950" : "bg-black/20"}`}
+                >
                   <Image
                     src={item.imageSrc}
                     alt={item.alt || item.title}
                     fill
-                    className="object-cover object-center transition-all duration-500 group-hover:scale-[1.03] group-hover:opacity-100"
+                    className={`${imageFitClass} ${imagePositionClass} transition-all duration-500 group-hover:scale-[1.03] group-hover:opacity-100`}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (min-width: 1024px) 30vw"
                     fetchPriority="low"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-80 transition-opacity group-hover:opacity-60" />
                   <div className="absolute bottom-0 w-full p-3 md:p-4">
-                    <h3 className="text-center font-display text-lg text-white drop-shadow-md md:text-xl">
+                    <h3 className="text-center font-display text-lg leading-tight text-white drop-shadow-md md:text-xl text-pretty px-0.5">
                       {item.title}
                     </h3>
                   </div>
@@ -61,7 +85,7 @@ const ExperienceSection = () => {
                       width={20}
                       height={20}
                     />
-                    <p className="text-sm font-medium leading-snug text-white">
+                    <p className="experience-card-body-text text-sm font-medium leading-snug text-white">
                       {item.line1}
                     </p>
                   </div>
@@ -75,7 +99,7 @@ const ExperienceSection = () => {
                         width={20}
                         height={20}
                       />
-                      <p className="text-sm font-medium leading-snug text-white">
+                      <p className="experience-card-body-text text-sm font-medium leading-snug text-white">
                         {item.line2}
                       </p>
                     </div>

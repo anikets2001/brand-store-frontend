@@ -30,10 +30,6 @@ const ExperienceSection = dynamic(() => import('../ExperienceSection/ExperienceS
   loading: sectionLoading,
   ssr: true,
 });
-const CodesharePartnershipsSection = dynamic(() => import('../CodesharePartnershipsSection/CodesharePartnershipsSection'), {
-  loading: sectionLoading,
-  ssr: true,
-});
 const CampaignSection = dynamic(() => import('../CampaignSection/CampaignSection'), {
   loading: sectionLoading,
   ssr: true,
@@ -129,11 +125,6 @@ export default function AirlinePage() {
       {/* SECTION: Elevated Journeys */}
       <LazySection minHeight="200px">
         <ExperienceSection />
-      </LazySection>
-
-      {/* SECTION: Codeshare partnerships */}
-      <LazySection minHeight="180px">
-        <CodesharePartnershipsSection />
       </LazySection>
 
       {/* SECTION: India's Only Premium Economy */}

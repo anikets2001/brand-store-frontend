@@ -200,17 +200,17 @@ const config = {
       imageSrc: imgLounges,
       alt: 'World-class lounges',
     },
+    {
+      id: 8,
+      title: 'Codeshare Partnerships',
+      line1: 'Explore more with our 100+ global partners on a single ticket',
+      line2: 'Enjoy seamless baggage transfer and frequent flyer benefits',
+      imageSrc: imgCodeshare,
+      alt: 'Air India codeshare partnerships',
+      /** Full-bleed graphic with embedded type: show entire asset in the square (letterbox if needed). */
+      imageObjectFit: 'contain',
+    },
   ],
-
-  codesharePartnerships: {
-    headline: 'Codeshare Partnerships',
-    lines: [
-      'Explore more with our 100+ global partners on a single ticket',
-      'Enjoy seamless baggage transfer and frequent flyer benefits',
-    ],
-    imageSrc: imgCodeshare,
-    imageAlt: 'Air India codeshare partnerships',
-  },
 
   featureCards: [
     {

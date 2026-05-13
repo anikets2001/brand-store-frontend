@@ -38,9 +38,14 @@ html {
   overflow-x: hidden;
 }
 
+/* Experience tiles: lock to same families as page body + Playfair titles */
+.experience-card-body-text {
+  font-family: Lato, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
 body {
   font-family: Lato, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: linear-gradient(165deg, var(--airindia-beige-light) 0%, var(--airindia-beige) 25%, var(--airindia-beige-warm) 50%, rgba(182,16,50,0.12) 80%, rgba(83,18,81,0.08) 100%);
+  background: linear-gradient(165deg, var(--airindia-beige-light) 0%, var(--airindia-beige) 25%, var(--airindia-beige-warm) 50%, rgba(182, 16, 50, 0.12) 80%, rgba(83, 18, 81, 0.08) 100%);
   background-attachment: fixed;
   color: var(--text-main-dark);
   overflow-x: hidden;
@@ -49,19 +54,22 @@ body {
 
 /* Premium section backgrounds – brand colours only (#531251 #b61032 #da0e29 #ebbe69 #f9f6ee) */
 .bg-premium-purple {
-  background: linear-gradient(180deg, #531251 0%, rgba(83,18,81,0.97) 40%, rgba(83,18,81,0.98) 70%, #531251 100%);
+  background: linear-gradient(180deg, #531251 0%, rgba(83, 18, 81, 0.97) 40%, rgba(83, 18, 81, 0.98) 70%, #531251 100%);
   box-shadow: inset 0 1px 0 rgba(249, 246, 238, 0.03);
 }
+
 .bg-premium-darkred {
-  background: linear-gradient(180deg, #b61032 0%, rgba(182,16,50,0.97) 45%, rgba(182,16,50,0.98) 75%, #b61032 100%);
+  background: linear-gradient(180deg, #b61032 0%, rgba(182, 16, 50, 0.97) 45%, rgba(182, 16, 50, 0.98) 75%, #b61032 100%);
   box-shadow: inset 0 1px 0 rgba(249, 246, 238, 0.03);
 }
+
 .bg-premium-red {
-  background: linear-gradient(180deg, #da0e29 0%, rgba(218,14,41,0.97) 50%, #da0e29 100%);
+  background: linear-gradient(180deg, #da0e29 0%, rgba(218, 14, 41, 0.97) 50%, #da0e29 100%);
   box-shadow: inset 0 1px 0 rgba(249, 246, 238, 0.03);
 }
+
 .bg-premium-blend {
-  background: linear-gradient(175deg, #531251 0%, rgba(83,18,81,0.6) 50%, #b61032 100%);
+  background: linear-gradient(175deg, #531251 0%, rgba(83, 18, 81, 0.6) 50%, #b61032 100%);
 }
 
 /* Beige sections: jaali pattern clearly visible with one light tint */
@@ -88,17 +96,20 @@ body {
   color: var(--text-on-beige);
   position: relative;
 }
+
 .bg-jaali {
   --jaali-tint: rgba(232, 223, 212, 0.22);
   /* Keep the same tile height as other jaali sections to avoid seams on transitions. */
   --tile-height: 420px;
 }
+
 .bg-beige-jaali {
   --jaali-tint: rgba(242, 235, 227, 0.32);
   --tile-height: 420px;
 }
 
 @media (max-width: 640px) {
+
   /* `background-attachment: fixed` can render differently on mobile and
      can re-introduce a seam between repeated tiles. */
   .bg-jaali,
@@ -115,6 +126,7 @@ body {
   color: var(--text-on-beige);
   text-shadow: none;
 }
+
 .bg-jaali .subtext-premium,
 .bg-jaali .subtext-beige,
 .bg-beige-jaali .subtext-premium,
@@ -122,30 +134,36 @@ body {
   color: var(--text-on-beige-muted);
   text-shadow: none;
 }
+
 .bg-jaali .premium-card,
 .bg-beige-jaali .premium-card {
   border-color: rgba(61, 54, 48, 0.12);
   box-shadow: 0 2px 16px rgba(61, 54, 48, 0.08), 0 0 0 1px rgba(61, 54, 48, 0.08);
 }
+
 .bg-jaali .premium-card:hover,
 .bg-beige-jaali .premium-card:hover {
   border-color: rgba(235, 190, 105, 0.4);
   box-shadow: 0 8px 32px rgba(61, 54, 48, 0.12), 0 0 0 1px rgba(235, 190, 105, 0.25);
 }
+
 .premium-card {
   border: 1px solid rgba(249, 246, 238, 0.06);
   box-shadow: 0 1px 0 rgba(249, 246, 238, 0.04), 0 8px 32px rgba(83, 18, 81, 0.35), 0 0 0 1px rgba(235, 190, 105, 0.06);
   transition: border-color 0.35s ease, box-shadow 0.35s ease;
 }
+
 .premium-card:hover {
   border-color: rgba(235, 190, 105, 0.22);
   box-shadow: 0 1px 0 rgba(249, 246, 238, 0.06), 0 12px 40px rgba(83, 18, 81, 0.4), 0 0 0 1px rgba(235, 190, 105, 0.14);
 }
+
 .heading-premium {
   color: #f9f6ee;
   text-shadow: 0 1px 2px rgba(83, 18, 81, 0.2), 0 0 1px rgba(0, 0, 0, 0.15);
   letter-spacing: 0.01em;
 }
+
 .subtext-premium {
   color: rgba(249, 246, 238, 0.82);
   text-shadow: 0 0 1px rgba(83, 18, 81, 0.1);
@@ -197,7 +215,7 @@ body {
 @font-face {
   font-family: 'Air India Sans';
   src: url('/assets/air-india/fonts/AirIndiaSans.woff2') format('woff2'),
-       url('/assets/air-india/fonts/AirIndiaSans.woff') format('woff');
+    url('/assets/air-india/fonts/AirIndiaSans.woff') format('woff');
   font-weight: 100 700;
   font-display: swap;
 }

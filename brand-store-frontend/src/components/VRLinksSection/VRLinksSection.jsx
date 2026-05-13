@@ -69,7 +69,7 @@ const VRLinksSection = () => {
 
       <div className="relative max-w-4xl mx-auto">
         <div className="mb-8 md:mb-10">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl heading-brand-main-on-dark mb-2 md:mb-3 leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-(--primary) mb-2 md:mb-3 leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
             Step Inside the New Air India Experience
           </h2>
           <p className="mt-2 md:mt-3 subtext-premium text-sm md:text-base max-w-xl">
