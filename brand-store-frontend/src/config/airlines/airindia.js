@@ -188,7 +188,7 @@ const config = {
       id: 6,
       title: 'Maharaja Club',
       line1: 'Exclusive rewards and privileges for frequent flyers',
-      line2: 'Earn Maharaja points on Air India and redeem across 24 Star Alliance partner airlines',
+      line2: 'Earn Maharaja points on Air India and redeem across 25 Star Alliance partner airlines',
       imageSrc: imgMaharajaClub,
       alt: 'Maharaja Club',
     },
@@ -244,7 +244,7 @@ const config = {
 
   network: {
     headline: 'Connecting India to the World',
-    subline: '40+ Global Destinations and 43 within India',
+    subline: '40+ Global Destinations and 42+ within India',
     domesticTitle: 'Domestic',
     internationalTitle: 'International',
     domesticTiles: [

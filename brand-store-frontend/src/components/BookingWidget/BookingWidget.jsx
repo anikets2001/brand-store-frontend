@@ -51,12 +51,14 @@ const BookingWidget = ({
       >
         <div className="absolute top-0 right-0 w-125 h-125 bg-(--primary)/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/2" />
         <div className="flex items-center space-x-8 mb-8 border-b border-white/5 pb-1 relative z-10">
-          <div className="relative pb-4 text-(--primary) text-xs md:text-sm font-bold uppercase tracking-widest after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-(--primary) after:shadow-[0_0_10px_rgba(214,176,109,0.5)]">
+          <div className="relative pb-4 text-(--primary) text-xs md:text-xl font-bold uppercase tracking-widest after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-(--primary) after:shadow-[0_0_10px_rgba(214,176,109,0.5)]">
             Book Flight
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-3 md:gap-4 relative z-10">
+        
+        <div className="flex flex-col md:flex-row gap-3 md:gap-4 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-3 md:gap-4 flex-1 min-w-0">
           {/* From */}
           <div className="md:col-span-2">
             <FromDropdown
@@ -138,30 +140,13 @@ const BookingWidget = ({
               onDone={onDone}
             />
           </div>
-        </div>
+          </div>
 
-        <div className="mt-8 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 relative z-0">
-          {/* <div className="flex space-x-6">
-            <label className="flex items-center space-x-2 cursor-pointer group">
-              <div className="w-4 h-4 rounded-full border border-white/30 flex items-center justify-center group-hover:border-(--primary)" />
-              <span className="text-xs text-white/50 uppercase tracking-wider group-hover:text-white transition-colors">
-                One Way
-              </span>
-            </label>
-
-            <label className="flex items-center space-x-2 cursor-pointer group">
-              <div className="w-4 h-4 rounded-full border border-white/30 flex items-center justify-center group-hover:border-(--primary) relative">
-                <div className="absolute inset-0.5 rounded-full bg-(--primary)" />
-              </div>
-              <span className="text-xs text-white/90 font-medium uppercase tracking-wider group-hover:text-(--primary) transition-colors">
-                Return
-              </span>
-            </label>
-          </div> */}
-
-          <button className="cursor-pointer w-full md:w-auto min-h-[48px] px-16 md:px-12 py-3.5 md:h-14 bg-linear-to-r from-(--primary) to-(--primary-dark) text-(--navy-deep) font-bold uppercase tracking-[0.2em] text-xs rounded shadow-[0_4px_20px_-5px_rgba(214,176,109,0.3)] hover:shadow-[0_0_30px_rgba(214,176,109,0.4)] transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center border border-white/10 touch-manipulation">
-            Search Flights
-          </button>
+          <div className="flex items-center justify-center w-full md:w-auto md:pt-6 shrink-0">
+            <button className="cursor-pointer w-full md:w-auto min-h-[48px] px-8 md:px-10 py-3.5 h-14 bg-linear-to-r from-(--primary) to-(--primary-dark) text-(--navy-deep) font-bold uppercase tracking-[0.2em] text-xs rounded shadow-[0_4px_20px_-5px_rgba(214,176,109,0.3)] hover:shadow-[0_0_30px_rgba(214,176,109,0.4)] transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center border border-white/10 touch-manipulation whitespace-nowrap">
+              Search Flights
+            </button>
+          </div>
         </div>
       </div>
     </div>

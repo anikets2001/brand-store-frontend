@@ -73,7 +73,7 @@ const VRLinksSection = () => {
             Step Inside the New Air India Experience
           </h2>
           <p className="mt-2 md:mt-3 subtext-premium text-sm md:text-base max-w-xl">
-            A fully interactive 360<sup className="text-[0.65em] leading-none">°</sup> virtual walkthrough of every cabin class
+            A fully interactive 360<sup className="text-[0.65em] leading-none">°</sup> virtual walkthrough of each cabin class
           </p>
         </div>
 
