@@ -46,7 +46,7 @@ const HeroBanner = ({
         </div>
       </div>
 
-      <div className=" mx-auto px-4 sm:px-50 w-full relative z-10 pt-6 sm:pt-10 pb-12 sm:pb-20">
+      <div className=" mx-auto px-4 sm:px-20 w-full relative z-10 pt-6 sm:pt-10 pb-12 sm:pb-20">
         {/* HERO */}
         <div
           className={`text-center mb-16 ${
@@ -60,7 +60,7 @@ const HeroBanner = ({
             className={heroTitleClass}
             dangerouslySetInnerHTML={{ __html: heroTitleHtml }}
             id="heroTitle"
-            style={{ marginTop: "32px" }}
+            style={{ marginTop: "50px" }}
           />
           <div className="max-w-2xl mx-auto lg:pt-8 transition-all duration-700 border-t border-[#f9f6ee]/12 shadow-[0_1px_0_rgba(235,190,105,0.12)]"></div>
         </div>

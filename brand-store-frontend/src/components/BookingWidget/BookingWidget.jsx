@@ -57,10 +57,10 @@ const BookingWidget = ({
         </div>
 
         
-        <div className="flex flex-col md:flex-row gap-3 md:gap-4 relative z-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-3 md:gap-4 flex-1 min-w-0">
+        <div className="flex flex-col xl:flex-row gap-3 xl:gap-4 relative z-10">
+          <div className="flex flex-col md:flex-row md:flex-wrap xl:flex-nowrap items-stretch md:items-end gap-3 md:gap-3 flex-1 min-w-0">
           {/* From */}
-          <div className="md:col-span-2">
+          <div className="w-full md:w-[15rem] md:shrink-0">
             <FromDropdown
               selectedAirport={fromAirport}
               onSelect={setFromAirport}
@@ -75,8 +75,18 @@ const BookingWidget = ({
             />
           </div>
 
-          {/* Swap */}
-          <div className="md:col-span-1 flex items-center justify-center md:pt-6">
+          {/* Swap (mobile) */}
+          <div className="flex md:hidden items-center justify-center shrink-0 -my-1">
+            <button
+              onClick={handleSwap}
+              className="cursor-pointer w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-(--primary) hover:border-(--primary) transition-all bg-white/5 hover:bg-white/10 transform hover:rotate-180 duration-500"
+            >
+              <ArrowRightLeft size={16}/>
+            </button>
+          </div>
+
+          {/* Swap (desktop) */}
+          <div className="hidden md:flex items-center justify-center shrink-0 md:pb-2">
             <button
               onClick={handleSwap}
               className="cursor-pointer w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-(--primary) hover:border-(--primary) transition-all bg-white/5 hover:bg-white/10 transform hover:rotate-180 duration-500"
@@ -86,7 +96,7 @@ const BookingWidget = ({
           </div>
 
           {/* To */}
-          <div className="md:col-span-2">
+          <div className="w-full md:w-[15rem] md:shrink-0">
             <ToDropdown
               selectedAirport={toAirport}
               onSelect={setToAirport}
@@ -103,7 +113,7 @@ const BookingWidget = ({
           </div>
 
           {/* Dates */}
-          <div className="md:col-span-5">
+          <div className="w-full md:flex-1 md:min-w-[17rem]">
             <DatesDropdown
               departureDate={departureDate}
               returnDate={returnDate}
@@ -121,7 +131,7 @@ const BookingWidget = ({
           </div>
 
           {/* Passengers */}
-          <div className="md:col-span-2">
+          <div className="w-full md:w-[11rem] md:shrink-0">
             <PassengersDropdown
               passengers={passengers}
               passengerDisplay={passengerDisplay}
@@ -142,7 +152,7 @@ const BookingWidget = ({
           </div>
           </div>
 
-          <div className="flex items-center justify-center w-full md:w-auto md:pt-6 shrink-0">
+          <div className="flex items-center justify-center w-full xl:w-auto xl:pt-6 shrink-0">
             <button className="cursor-pointer w-full md:w-auto min-h-[48px] px-8 md:px-10 py-3.5 h-14 bg-linear-to-r from-(--primary) to-(--primary-dark) text-(--navy-deep) font-bold uppercase tracking-[0.2em] text-xs rounded shadow-[0_4px_20px_-5px_rgba(214,176,109,0.3)] hover:shadow-[0_0_30px_rgba(214,176,109,0.4)] transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center border border-white/10 touch-manipulation whitespace-nowrap">
               Search Flights
             </button>

@@ -52,7 +52,7 @@ const DatesDropdown = ({
   };
 
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className="relative w-full" ref={dropdownRef}>
       <label className="text-[10px] text-(--primary) uppercase font-bold tracking-widest mb-2 block pl-1">
         Dates
       </label>
@@ -69,9 +69,9 @@ const DatesDropdown = ({
           }}
         >
           <Calendar1 className="text-white/40 mr-3 shrink-0 group-hover:text-(--primary) transition-colors font-light" />
-          <div className="flex min-w-0 flex-1 flex-col justify-center gap-0.5 pr-1">
-            <span className="text-[10px] uppercase tracking-widest text-white/45">Departure Date</span>
-            <span className="block min-w-0 font-display text-base leading-snug text-white sm:text-lg md:whitespace-nowrap md:overflow-hidden md:text-ellipsis">
+          <div className="flex flex-1 flex-col justify-center gap-0.5 pr-1 min-w-0">
+            <span className="text-[10px] uppercase tracking-widest text-white/45">Departure</span>
+            <span className="block font-display text-base leading-snug text-white sm:text-lg whitespace-nowrap">
               {departureDate ? formatDate(departureDate) : 'Select Date'}
             </span>
           </div>
@@ -89,10 +89,10 @@ const DatesDropdown = ({
           }}
         >
           <Calendar1 className="text-white/40 mr-3 shrink-0 group-hover:text-(--primary) transition-colors font-light" />
-          <div className="flex min-w-0 flex-1 flex-col justify-center gap-0.5 pr-1">
-            <span className="text-[10px] uppercase tracking-widest text-white/45">Return Date</span>
+          <div className="flex flex-1 flex-col justify-center gap-0.5 pr-1 min-w-0">
+            <span className="text-[10px] uppercase tracking-widest text-white/45">Return</span>
             <span
-              className="block min-w-0 font-display text-base leading-snug text-white sm:text-lg md:whitespace-nowrap md:overflow-hidden md:text-ellipsis"
+              className="block font-display text-base leading-snug text-white sm:text-lg whitespace-nowrap"
               title={fullRangeTitle ?? (returnDate ? formatDate(returnDate) : undefined)}
             >
               {returnDate ? formatDate(returnDate) : 'Select Date'}

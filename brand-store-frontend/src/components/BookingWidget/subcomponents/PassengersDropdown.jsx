@@ -36,7 +36,7 @@ const PassengersDropdown = ({
   }, [isOpen, onClose]);
 
   return (
-    <div className="relative" ref={dropdownRef} style={{ zIndex: 99999 }}>
+    <div className="relative w-full" ref={dropdownRef} style={{ zIndex: 99999 }}>
       <label className="text-[10px] text-(--primary) uppercase font-bold tracking-widest mb-2 block pl-1">
         Passengers
       </label>
@@ -49,11 +49,11 @@ const PassengersDropdown = ({
         }}
       >
         <UsersRound className="text-white/40 mr-3 group-hover:text-(--primary) transition-colors font-light shrink-0" />
-        <div className="flex flex-col flex-1 min-w-0">
-          <span className="text-white font-display text-lg leading-tight whitespace-nowrap truncate">
+        <div className="flex flex-col flex-1 min-w-0 pr-2">
+          <span className="text-white font-display text-lg leading-tight whitespace-nowrap">
             {passengerDisplay}
           </span>
-          <span className="text-[10px] text-white/40 uppercase tracking-widest whitespace-nowrap truncate">
+          <span className="text-[10px] text-white/40 uppercase tracking-widest whitespace-nowrap">
             {classDisplay}
           </span>
         </div>

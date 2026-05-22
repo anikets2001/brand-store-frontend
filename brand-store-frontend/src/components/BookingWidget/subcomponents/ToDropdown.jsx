@@ -41,7 +41,7 @@ const ToDropdown = ({
     : airports;
 
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className="relative w-full" ref={dropdownRef}>
       <label className="text-[10px] text-(--primary) uppercase font-bold tracking-widest mb-2 block pl-1">
         To
       </label>
