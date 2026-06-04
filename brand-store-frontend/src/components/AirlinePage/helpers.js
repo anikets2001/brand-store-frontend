@@ -115,7 +115,7 @@ export function getHeroTitleClass(premiumMode) {
   /* Slightly reduced sizes so the hero can accommodate the aircraft in full */
   return premiumMode === 'business' || premiumMode === 'premiumEconomy'
     ? 'font-display text-2xl sm:text-4xl md:text-6xl lg:text-8xl text-white tracking-wide leading-tight hero-title-shadow px-2'
-    : 'font-display text-2xl sm:text-4xl md:text-6xl lg:text-7xl text-white tracking-wide leading-none drop-shadow-2xl transition-all duration-700 px-2';
+    : 'font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-white tracking-wide leading-snug sm:leading-none drop-shadow-2xl transition-all duration-700 px-2';
 }
 
 export function getHeroTitleHtml(premiumMode, hero) {
