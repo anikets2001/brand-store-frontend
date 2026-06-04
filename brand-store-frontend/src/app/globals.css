@@ -244,7 +244,7 @@ body {
 
 /* Brand panel – mellow beige with jaali hint (widgets/dropdowns) */
 .airindia-panel {
-  background: linear-gradient(160deg, rgba(83, 18, 81, 0.92) 0%, rgba(182, 16, 50, 0.88) 100%);
+  background: linear-gradient(160deg, rgb(83, 18, 81) 0%, rgb(160, 16, 44) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(249, 246, 238, 0.06);
